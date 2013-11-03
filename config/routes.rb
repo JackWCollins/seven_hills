@@ -5,6 +5,14 @@ SevenHills::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  get '/home', to: 'pages#home'
+  get '/tandem', to: 'pages#tandem'
+  get '/iad', to: 'pages#iad'
+  get '/experienced', to: 'pages#experienced'
+  get '/facilities', to: 'pages#facilities'
+  get '/contact', to: 'pages#contact'
+  get '/about', to: 'pages#about'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

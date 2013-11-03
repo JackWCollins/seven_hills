@@ -82,6 +82,11 @@ body {
   margin-right: 10px;
 }
 
+.marketingImg img {
+  width: 140px;
+  max-width: 140px;
+}
+
 
 /* Featurettes
 ------------------------- */
