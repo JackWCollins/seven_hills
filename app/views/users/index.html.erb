@@ -1,5 +1,9 @@
 <div class="container">
 
+<%= link_to(new_post_path, class: "btn btn-success") do %>
+  New Post
+<% end %>
+
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>
   <p><%= post.body %></p>

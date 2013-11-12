@@ -1,0 +1,14 @@
+<div class='well'>
+  <%= form_for @post do |f| %>
+    <%= render 'shared/errors', obj: @post %>
+    <div class='control-group'>
+    	<%= f.label :title %>
+    	<%= f.text_field :title %>
+    </div>
+    <div class='control-group'>
+    	<%= f.label :body %>
+    	<%= f.text_area :body %>
+    </div>
+    <%= f.submit(@post.new_record? ? "Create Post" : "Update Post", class: 'btn btn-primary') %>
+  <% end %>
+</div>
