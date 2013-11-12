@@ -8,6 +8,7 @@ SevenHills::Application.routes.draw do
   get '/facilities', to: 'pages#facilities'
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about'
+  get '/members', to: 'users#index'
 
   resources :posts
   resources :users, only: [:show, :create, :edit, :update]
