@@ -11,6 +11,6 @@ SevenHills::Application.routes.draw do
   get '/members', to: 'users#index'
 
   resources :posts
-  resources :users, only: [:show, :create, :edit, :update]
+  resources :users
 
 end
