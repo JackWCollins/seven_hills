@@ -9,8 +9,12 @@ SevenHills::Application.routes.draw do
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about'
   get '/members', to: 'users#index'
+  get '/register', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   resources :posts
-  resources :users
+  resources :users, only: [:create]
 
 end
