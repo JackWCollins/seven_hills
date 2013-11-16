@@ -3,8 +3,8 @@
 <div>
 	<ul class="list-inline">
 		<li>
-			<%= link_to(new_post_path, class: "btn btn-success") do %>
-			  New Post
+			<%= link_to(shifts_path, class: "btn btn-primary") do %>
+			  View Shift Calendar
 			<% end %>
 		</li>
 		<li>
@@ -13,12 +13,18 @@
 			<% end %>
 		</li>
 		<li>
-			<%= link_to(shifts_path, class: "btn btn-primary") do %>
-			  View Shift Calendar
+			<%= link_to(new_post_path, class: "btn btn-success") do %>
+			  New Post
 			<% end %>
 		</li>
 	</ul>
 </div>
+
+<% @shifts.each do |shift| %>
+  <div class="well">
+  	<strong><%= shift.person %></strong> signed up for a shift as a <strong><%= shift.role %></strong> on <%= display_day(shift.date) %> from <%= display_time(shift.start_time) %> to <%= display_time(shift.end_time) %>.
+  </div>
+<% end %>
 
 <% @posts.each do |post| %>
 	<div class="well">
@@ -28,12 +34,6 @@
 	  </ul>
 	  <p><%= post.body %></p>
 	</div>
-<% end %>
-
-<% @shifts.each do |shift| %>
-  <div class="well">
-  	<%= shift.person %> signed up for a shift as a <%= shift.role %> on <%= display_day(shift.date) %> from <%= display_time(shift.start_time) %> to <%= display_time(shift.end_time) %>.
-  </div>
 <% end %>
 
 </div>

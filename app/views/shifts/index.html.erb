@@ -1,5 +1,7 @@
-<%= link_to(new_shift_path, class: "btn btn-success") do %>
-	Create a Shift
+<% if logged_in? %>
+	<%= link_to(new_shift_path, class: "btn btn-success") do %>
+		Create a Shift
+	<% end %>
 <% end %>
 
 <%= calendar @shifts do |shift| %>

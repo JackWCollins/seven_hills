@@ -15,11 +15,11 @@
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label :begin_time %>
-	  	<%= f.time_select :begin_time %>
+	  	<%= f.time_select :begin_time, {minute_step: 15, ampm: true} %>
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label :end_time %>
-	  	<%= f.time_select :end_time %>
+	  	<%= f.time_select :end_time, {minute_step: 15, ampm: true} %>
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label :notes %>
