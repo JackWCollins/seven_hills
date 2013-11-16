@@ -5,8 +5,24 @@
 <% end %>
 
 <% @posts.each do |post| %>
-  <h3><%= post.title %></h3>
-  <p><%= post.body %></p>
+	<div class="well">
+		<ul class="list-inline">
+		  <li><h3><%= post.title %></h3></li>
+		  <li>(<%= post.creator.first_name %>)</li>
+	  </ul>
+	  <p><%= post.body %></p>
+	</div>
+<% end %>
+
+<% @shifts.each do |shift| %>
+  <div class="well">
+  	<ul>
+  		<li><%= shift.creator.first_name %></li>
+  		<li><%= shift.date %></li>
+  		<li><%= shift.start_time %></li>
+  		<li><%= shift.end_time %></li>
+  	</ul>
+  </div>
 <% end %>
 
 </div>

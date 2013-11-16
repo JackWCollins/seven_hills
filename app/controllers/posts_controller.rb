@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_user, except: [:show]
 
 	def new
 		@post = Post.new
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
+		@post.creator = current_user
 		if @post.save
 			flash[:notice] = "Your post was saved"
 			redirect_to '/members'

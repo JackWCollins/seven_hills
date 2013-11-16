@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
 	def index
-		@posts = Post.all
+		if logged_in?
+		  @posts = Post.all
+		  @shifts = Shift.all
+		else
+			redirect_to login_path
+		end
 	end
 
 	def new

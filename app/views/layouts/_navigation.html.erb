@@ -8,20 +8,27 @@
 </div>
 <div class="navbar-collapse collapse">
   <ul class="nav navbar-nav">
-    <li class="active"><%= link_to "Home", '/home' %></li>
+    <li class="active"><%= link_to "Home", home_path %></li>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruction <b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><%= link_to "Tandem", '/tandem' %></li>
-        <li><%= link_to "Instructor-Aided Deployment", '/iad' %></li>
+        <li><%= link_to "Tandem", tandem_path %></li>
+        <li><%= link_to "Instructor-Aided Deployment", iad_path%></li>
         <li class="divider"></li>
         <li><%= link_to "Continuing Students", '#' %></li>
       </ul>
     </li>
-    <li><%= link_to "About", '/about' %></li>
-    <li><%= link_to "Facilities", '/facilities' %></li>
-    <li><%= link_to "Contact", '/contact' %></li>
-    <li><%= link_to "Members", '/members' %></li>
-    <li><%= link_to "Register", register_path %></li>
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Facilities", facilities_path %></li>
+    <li><%= link_to "Contact", contact_path %></li>
+    <li><%= link_to "Members", members_path %></li>
+  </ul>
+  <ul class="nav navbar-nav pull-right">
+    <% if logged_in? %>
+      <li><%= link_to "Logout", logout_path %></li>
+    <% else %>
+      <li><%= link_to "Register", register_path %></li>
+      <li><%= link_to "Login", login_path %></li>
+    <% end %>
   </ul>
 </div>
