@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116190527) do
+ActiveRecord::Schema.define(version: 20131116200059) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20131116190527) do
   create_table "shifts", force: true do |t|
     t.string   "role"
     t.datetime "date"
-    t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.text     "notes"
     t.string   "person"
+    t.datetime "begin_time"
   end
 
   create_table "users", force: true do |t|

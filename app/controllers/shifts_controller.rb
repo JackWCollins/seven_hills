@@ -13,19 +13,28 @@ class ShiftsController < ApplicationController
     @shift.creator = current_user
     if @shift.save
       flash[:notice] = "Your shift was saved"
-      redirect_to members_path
+      redirect_to shifts_path
     else
       render :new
     end
   end
 
   def edit
+    @shift = Shift.find(params[:id])
   end
 
   def update
+    @shift = Shift.find(params[:id])
+    if @shift.update(shift_params)
+      flash[:notice] = "The shift was updated"
+      redirect_to shifts_path
+    else
+      render :edit
+    end
   end
 
   def show
+    @shift = Shift.find(params[:id])
   end
 
   def destroy
