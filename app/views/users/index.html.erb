@@ -1,8 +1,24 @@
 <div class="container">
 
-<%= link_to(new_post_path, class: "btn btn-success") do %>
-  New Post
-<% end %>
+<div>
+	<ul class="list-inline">
+		<li>
+			<%= link_to(new_post_path, class: "btn btn-success") do %>
+			  New Post
+			<% end %>
+		</li>
+		<li>
+			<%= link_to(new_shift_path, class: "btn btn-success") do %>
+			  Sign up for a shift
+			<% end %>
+		</li>
+		<li>
+			<%= link_to(shifts_path, class: "btn btn-success") do %>
+			  View Shift Calendar
+			<% end %>
+		</li>
+	</ul>
+</div>
 
 <% @posts.each do |post| %>
 	<div class="well">

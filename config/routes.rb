@@ -16,5 +16,6 @@ SevenHills::Application.routes.draw do
 
   resources :posts
   resources :users, only: [:create]
+  resources :shifts
 
 end
