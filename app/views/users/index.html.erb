@@ -32,12 +32,7 @@
 
 <% @shifts.each do |shift| %>
   <div class="well">
-  	<ul>
-  		<li><%= shift.creator.first_name %></li>
-  		<li><%= shift.date %></li>
-  		<li><%= shift.start_time %></li>
-  		<li><%= shift.end_time %></li>
-  	</ul>
+  	<%= shift.creator.first_name %> signed up for a shift as a <%= shift.role %> on <%= display_day(shift.date) %> from <%= display_time(shift.start_time) %> to <%= display_time(shift.end_time) %>.
   </div>
 <% end %>
 
