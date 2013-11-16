@@ -1,4 +1,5 @@
 class Shift < ActiveRecord::Base
+	include SimpleCalendar
 
 	belongs_to :creator, class_name: 'User', foreign_key: :user_id
 
@@ -8,5 +9,9 @@ class Shift < ActiveRecord::Base
 	validates :end_time, presence: true
 
 	ROLE_TYPES = ["Pilot", "Tandem Instructor", "IAD Instructor", "Coach"]
+
+  def start_time
+  	date
+  end
 
 end

@@ -6,5 +6,4 @@ module ApplicationHelper
 	def display_time(dt)
 		dt.strftime("%l:%M %p")
 	end
-
 end

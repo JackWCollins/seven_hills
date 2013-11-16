@@ -9,7 +9,7 @@
 		</li>
 		<li>
 			<%= link_to(new_shift_path, class: "btn btn-success") do %>
-			  Sign up for a shift
+			  Create a Shift
 			<% end %>
 		</li>
 		<li>
@@ -32,7 +32,7 @@
 
 <% @shifts.each do |shift| %>
   <div class="well">
-  	<%= shift.creator.first_name %> signed up for a shift as a <%= shift.role %> on <%= display_day(shift.date) %> from <%= display_time(shift.start_time) %> to <%= display_time(shift.end_time) %>.
+  	<%= shift.person %> signed up for a shift as a <%= shift.role %> on <%= display_day(shift.date) %> from <%= display_time(shift.start_time) %> to <%= display_time(shift.end_time) %>.
   </div>
 <% end %>
 

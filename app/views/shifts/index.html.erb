@@ -1,0 +1,5 @@
+<%= calendar @shifts do |shift| %>
+  <div>
+  	<%= shift.role %>: <%= shift.person %> <%= display_time(shift.start_time) %>-<%= display_time(shift.end_time) %>
+  </div>
+<% end %>
