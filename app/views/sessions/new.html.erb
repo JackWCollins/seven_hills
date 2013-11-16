@@ -2,11 +2,11 @@
 
 <div class="well">
 	<%= form_tag '/login' do %>
-    <div class='control-group'>
+    <div class='form-group'>
     	<%= label_tag :email %>
     	<%= email_field_tag :email, params[:email] || '' %>
     </div>
-    <div class='control-group'>
+    <div class='form-group'>
     	<%= label_tag :password %>
     	<%= password_field_tag :password, params[:password] || '' %>
     </div>
