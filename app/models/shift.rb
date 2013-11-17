@@ -8,7 +8,7 @@ class Shift < ActiveRecord::Base
 	validates :start_time, presence: true
 	validates :end_time, presence: true
 
-	ROLE_TYPES = ["Pilot", "Tandem Instructor", "IAD Instructor", "Coach"]
+	ROLE_TYPES = ["Pilot", "Tandem Instructor", "IAD Instructor", "Coach", "Tandem Student Count", "IAD Student Count"]
 
   def start_time
   	date

@@ -5,7 +5,7 @@
 <div class="well">
 	<p>
 		<%= display_day(@shift.date) %>
-		from <%= display_time(@shift.begin_time) %> to <%= display_time(@shift.end_time) %>
+		from <%= display_time(@shift.date) %> to <%= display_time(@shift.end_time) %>
   </p>
   <p>
 		Created by: <%= @shift.creator.first_name %> <%= @shift.creator.last_name %>
