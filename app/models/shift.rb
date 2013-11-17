@@ -7,6 +7,7 @@ class Shift < ActiveRecord::Base
 	validates :date, presence: true
 	validates :start_time, presence: true
 	validates :end_time, presence: true
+	validates :person, presence: true
 
 	ROLE_TYPES = ["Pilot", "Tandem Instructor", "IAD Instructor", "Coach", "Tandem Student Count", "IAD Student Count"]
 

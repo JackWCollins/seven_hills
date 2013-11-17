@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
 	def index
 		if logged_in?
-		  @posts = Post.all
-		  @shifts = Shift.all
+		  @posts = Post.all.sort_by{ |x| x.updated_at}.reverse
+		  @shifts = Shift.all.sort_by{ |x| x.updated_at}.reverse
 		else
 			redirect_to login_path
 		end
