@@ -20,4 +20,7 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def continuing
+  end
 end
