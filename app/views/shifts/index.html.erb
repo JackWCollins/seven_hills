@@ -1,37 +1,39 @@
-<% if logged_in? %>
-<%= link_to(new_shift_path, class: "btn btn-success") do %>
-	Create a Shift
-<% end %>
-<% end %>
+<div class="container">
+	<% if logged_in? %>
+	<%= link_to(new_shift_path, class: "btn btn-success") do %>
+		Create a Shift
+	<% end %>
+	<% end %>
 
-<%= calendar @shifts do |shift| %>
-  <div>
-  	<% case shift.role %>
-  	<% when "Pilot" %>
-	  	<%= link_to(shift_path(shift), class: "btn btn-primary btn-sm") do %>
-				  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
+	<%= calendar @shifts do |shift| %>
+	  <div>
+	  	<% case shift.role %>
+	  	<% when "Pilot" %>
+		  	<%= link_to(shift_path(shift), class: "btn btn-primary btn-sm") do %>
+					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
+				<% end %>
+			<% when "Tandem Instructor" %>
+		  	<%= link_to(shift_path(shift), class: "btn btn-success btn-sm") do %>
+					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
+				<% end %>
+			<% when "IAD Instructor" %>
+		  	<%= link_to(shift_path(shift), class: "btn btn-info btn-sm") do %>
+					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
+				<% end %>
+			<% when "Coach" %>
+		  	<%= link_to(shift_path(shift), class: "btn btn-warning btn-sm") do %>
+					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
+				<% end %>
+				<% when "Tandem Student Count" %>
+		  	<%= link_to(shift_path(shift), class: "btn btn-sm") do %>
+					  <%= shift.role %>: <%= shift.person %> 
+				<% end %>
+				<% when "IAD Student Count" %>
+		  	<%= link_to(shift_path(shift), class: "btn btn-sm") do %>
+					  <%= shift.role %>: <%= shift.person %> 
+				<% end %>
 			<% end %>
-		<% when "Tandem Instructor" %>
-	  	<%= link_to(shift_path(shift), class: "btn btn-success btn-sm") do %>
-				  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
-			<% end %>
-		<% when "IAD Instructor" %>
-	  	<%= link_to(shift_path(shift), class: "btn btn-info btn-sm") do %>
-				  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
-			<% end %>
-		<% when "Coach" %>
-	  	<%= link_to(shift_path(shift), class: "btn btn-warning btn-sm") do %>
-				  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
-			<% end %>
-			<% when "Tandem Student Count" %>
-	  	<%= link_to(shift_path(shift), class: "btn btn-sm") do %>
-				  <%= shift.role %>: <%= shift.person %> 
-			<% end %>
-			<% when "IAD Student Count" %>
-	  	<%= link_to(shift_path(shift), class: "btn btn-sm") do %>
-				  <%= shift.role %>: <%= shift.person %> 
-			<% end %>
-		<% end %>
-  </div>
-<% end %>
+	  </div>
+	<% end %>
+</div>
 
