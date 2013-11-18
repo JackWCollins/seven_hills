@@ -16,7 +16,7 @@ SevenHills::Application.routes.draw do
   get '/continuing', to: 'pages#continuing'
 
   resources :posts
-  resources :users, only: [:create]
+  resources :users, only: [:create, :edit, :show]
   resources :shifts
 
 end
