@@ -1,0 +1,12 @@
+<div class="container">
+	<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+	<% @user.shifts.each do |shift| %>
+    <div class="well">
+	  	<% if shift.role == "Tandem Student Count" || shift.role == "IAD Student Count" %>
+	  	  <strong><%= shift.creator.first_name %></strong> updated the <strong><%= shift.role %></strong> on <%= display_day(shift.date) %> to <strong><%= shift.person %></strong> students.
+	  	<% else %>
+		  	<strong><%= shift.person %></strong> signed up for a shift as a <strong><%= shift.role %></strong> on <%= display_day(shift.date) %> from <%= display_time(shift.start_time) %> to <%= display_time(shift.end_time) %>.
+		  <% end %>
+    </div>
+  <% end %>
+</div>

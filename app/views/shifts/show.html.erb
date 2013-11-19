@@ -1,16 +1,18 @@
-<ul class="list-inline">
-	<li><h4><%= @shift.role %>: <%= @shift.person %></h4></li>
-	<li><%= link_to "Edit", edit_shift_path(@shift) %></li>
-</ul>
-<div class="well">
-	<p>
-		<%= display_day(@shift.date) %>
-		from <%= display_time(@shift.date) %> to <%= display_time(@shift.end_time) %>
-  </p>
-  <p>
-		Created by: <%= @shift.creator.first_name %> <%= @shift.creator.last_name %>
-	</p>
-	<p>
-		Notes: <%= @shift.notes %>
-	</p>
+<div class="container">	
+	<ul class="list-inline">
+		<li><h4><%= @shift.role %>: <%= @shift.person %></h4></li>
+		<li><%= link_to "Edit", edit_shift_path(@shift) %></li>
+	</ul>
+	<div class="well">
+		<p>
+			<%= display_day(@shift.date) %>
+			from <%= display_time(@shift.date) %> to <%= display_time(@shift.end_time) %>
+	  </p>
+	  <p>
+			Created by: <%= @shift.creator.first_name %> <%= @shift.creator.last_name %>
+		</p>
+		<p>
+			Notes: <%= @shift.notes %>
+		</p>
+	</div>
 </div>
