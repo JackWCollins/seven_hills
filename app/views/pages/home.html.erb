@@ -51,19 +51,19 @@
     <%= link_to image_tag("john_exit.jpg", :class => "img-rounded", :style => "width:300px", alt: "Tandem Skydive"), '/tandem' %>
     <h2>Tandem Skydive</h2>
     <p>Tandem skydives are the quickest and easiest way to experience the thrill of skydiving. You will be strapped directly to a USPA certified instructor who will deploy and land the parachute while you take it all in.</p>
-    <p><a class="btn btn-primary" href="/tandem" role="button">More Information &raquo;</a></p>
+    <p><a class="btn btn-primary" href="/tandem" role="button">Tandem Information &raquo;</a></p>
   </div><!-- /.col-lg-4 -->
   <div class="col-lg-4">
     <%= link_to image_tag("murray_iad.jpg", :class => "img-rounded", :style => "width:300px", alt: "IAD Student"), '/iad' %>
     <h2>IAD Skydive</h2>
     <p>Instructor-aided deployment skydives are for those who want to take a more active role in their jump. After a full morning of training, an instructor will help you deploy your very own parachute! You fly and land the parachute yourself (with radio guidance).</p>
-    <p><a class="btn btn-primary" href="/iad" role="button">More Information &raquo;</a></p>
+    <p><a class="btn btn-primary" href="/iad" role="button">IAD Information &raquo;</a></p>
   </div><!-- /.col-lg-4 -->
   <div class="col-lg-4">
     <%= link_to image_tag("jack_hanging.jpg", :class => "img-rounded", :style => "width:272px", alt: "IAD Student"), '/experienced' %>
     <h2>Experienced Jumpers</h2>
     <p>Seven Hills is an very friendly and welcoming dropzone for skydivers of all experience levels! There are skydivers here from just about every discipline - some of them world record holders. Come jump with us!</p>
-    <p><a class="btn btn-primary" href="/experienced" role="button">More Information &raquo;</a></p>
+    <p><a class="btn btn-primary" href="/experienced" role="button">Experienced Information &raquo;</a></p>
   </div><!-- /.col-lg-4 -->
 </div><!-- /.row -->
 
@@ -78,7 +78,7 @@
     <p class="lead">Jump from 10,000 feet and reach speeds of 120 mph until your parachute gently opens and your instructor guides you back to earth.</p>
   </div>
   <div class="col-md-5">
-    <%= image_tag("russ_linda_tandem.jpg", :class => "featurette-image img-responsive", alt: "Tandem Skydive") %>
+    <%= link_to image_tag("russ_linda_tandem.jpg", :class => "featurette-image img-responsive", alt: "Tandem Skydive"), tandem_path %>
   </div>
 </div>
 
@@ -86,7 +86,7 @@
 
 <div class="row featurette">
   <div class="col-md-5">
-    <%= image_tag("mav_video.jpg", :class => "featurette-image img-responsive", alt: "Videographer") %>
+    <%= link_to image_tag("mav_video.jpg", :class => "featurette-image img-responsive", alt: "Videographer"), tandem_path %>
   </div>
   <div class="col-md-7">
     <h2 class="featurette-heading">Capture your skydive on video <span class="text-muted">and relive the moment forever.</span></h2>
@@ -102,7 +102,7 @@
     <p class="lead">You don't have to jump with an instructor for your first skydive! We also offer an Instructor-Aided Deployment course where you can fly and land your very own parachute! IAD Skydives require a 6 hour ground school before jumping. </p>
   </div>
   <div class="col-md-5">
-    <%= image_tag("murray_iad.jpg", :class => "featurette-image img-responsive", alt: "IAD Skydive") %>
+    <%= link_to image_tag("murray_iad.jpg", :class => "featurette-image img-responsive", alt: "IAD Skydive"), iad_path %>
   </div>
 </div>
 
