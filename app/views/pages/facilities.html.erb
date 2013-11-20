@@ -1,5 +1,9 @@
 <div class="container">
-	<%= image_tag("club_flyby.png", alt: "Club Flyby", :class => "img-rounded", :style => "width:500px") %>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-3">
+		<%= image_tag("club_flyby.png", alt: "Club Flyby", :class => "img-rounded", :style => "width:500px") %>
+	  </div>
+  </div>
 </div>
 <div class="container">
 	<h4>Clubhouse</h4>
@@ -17,52 +21,33 @@
 			<li>Complete kitchen with stove</li>
 		</ul>
 	</p>
-	<table>
-		<thead>
-			<tr>
-				<th width="50%"></th>
-				<th width="50%"></th>
-			</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>
-	      <%= image_tag("street_view.jpg", alt: "Clubhouse") %>
-	    </td>
-	  	<td>
-	      <%= image_tag("outside_clubhouse.jpg", alt: "Clubhouse") %>
-	    </td>
-	  </tr>
-	  <tr>
-			<td>
-	      <%= image_tag("classroom.jpg", alt: "Classroom") %>
-	    </td>
-	  	<td>
-	      <%= image_tag("office.jpg", alt: "Office") %>
-	    </td>
-	  </tr>
-	</tbody>
-  </table>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+	      <%= image_tag("street_view.jpg", alt: "Clubhouse", :class => "img-rounded") %>
+    </div>
+     <div class="col-md-4 col-md-offset-2">
+	      <%= image_tag("outside_clubhouse.jpg", alt: "Clubhouse", :class => "img-rounded") %>
+	   </div>
+  </div>
+  <br/>
+  <div class="row">
+		<div class="col-md-4 col-md-offset-1">
+	      <%= image_tag("classroom.jpg", alt: "Classroom", :class => "img-rounded") %>
+	  </div>
+	  <div class="col-md-4 col-md-offset-2">
+	      <%= image_tag("office.jpg", alt: "Office", :class => "img-rounded") %>
+	  </div>
+	 </div>
 	<h4>Airplanes</h4>
 	<p>
 		We have two Cessna-182 jumpships - one with an upgraded engine. Our planes are maintained and operated by FAA-certified pilots and mechanics.
 	</p>
-	<table>
-		<thead>
-			<tr>
-				<th width="50%"></th>
-				<th width="50%"></th>
-			</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>
-	      <%= image_tag("824.jpg", alt: "824") %>
-	    </td>
-	  	<td>
-	      <%= image_tag("82R.jpg", alt: "82R") %>
-	    </td>
-	  </tr>
-	</tbody>
-  </table>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+	      <%= image_tag("824.jpg", alt: "824", :class => "img-rounded") %>
+	  </div>
+	  <div class="col-md-4 col-md-offset-2">
+	      <%= image_tag("82R.jpg", alt: "82R", :class => "img-rounded", :style => "width:435px") %>
+	  </div>
+  </div>
 </div>
