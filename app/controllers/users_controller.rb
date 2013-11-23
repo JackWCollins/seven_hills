@@ -35,6 +35,24 @@ class UsersController < ApplicationController
 	def update
 	end
 
+	def set_member
+		@user = User.find_by(id: session[:user_id])
+	end
+
+	def member_authentication
+		@user = User.find_by(id: session[:user_id])
+		if params[:member] == User::PASSWORD 
+			@user.member = "member"
+			if @user.save
+			  flash[:notice] = "You are now saved as a member and have edit capabilities for the schedule."
+			  redirect_to '/members'
+			else
+				flash[:error] = "Incorrect Password"
+	  		redirect_to set_member_path
+	  	end
+  	end
+	end
+
   private
 
   def set_user

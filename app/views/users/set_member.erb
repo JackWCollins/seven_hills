@@ -1,0 +1,10 @@
+<div class="well">
+	<%= form_for @user, url: {action: "set_member"} do |f| %>
+		<%= render 'shared/errors', obj: @user %>
+    <div class='form-group'>
+    	<%= label_tag "Member Password" %>
+    	<%= password_field_tag :member, params[:member] || '' %>
+    </div>
+    <%= f.submit "Submit", class: 'btn btn-success' %>
+	<% end %>
+</div>

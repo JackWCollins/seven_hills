@@ -14,6 +14,9 @@ SevenHills::Application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/continuing', to: 'pages#continuing'
+  get '/set_member', to: 'users#set_member'
+  post '/set_member', to: 'users#member_authentication'
+  patch '/set_member', to: 'users#member_authentication'
 
   resources :posts
   resources :users, only: [:create, :edit, :show]

@@ -1,21 +1,21 @@
 <div class='well'>
 	<%= form_for @user do |f| %>
 		<%= render 'shared/errors', obj: @user %>
-		<div class='control-group'>
+		<div class='form-group'>
 			<%= f.label :first_name %>
-			<%= f.text_field :first_name %>
+			<%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
 		</div>
-		<div class='control-group'>
+		<div class='form-group'>
 			<%= f.label :last_name %>
-			<%= f.text_field :last_name %>
+			<%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
 		</div>
-		<div class='control-group'> <!-- currently not saving email -->
+		<div class='form-group'> 
 			<%= f.label :email %>
-			<%= f.email_field :email %>
+			<%= f.email_field :email, class: "form-control", placeholder: "example@gmail.com" %>
 		</div>
-		<div class='control-group'>
+		<div class='form-group'>
 			<%= f.label :password %>
-			<%= f.password_field :password %>
+			<%= f.password_field :password, class: "form-control" %>
 		</div>
 		<%= f.submit @user.new_record? ? "Register" : "Update Profile", class: 'btn btn-success' %>
 	<% end %>
