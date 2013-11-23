@@ -51,7 +51,7 @@
 			  <li><h3><%= post.title %></h3></li>
 			  <li>(<%= post.creator.first_name %>)</li>
 		  </ul>
-	  <p><%= post.body %></p>
+	  <p><%= simple_format h(post.body) %></p>
 	</div>
   <% end %>
 <% elsif params[:tab] == 'shifts' %>

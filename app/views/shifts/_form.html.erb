@@ -20,7 +20,7 @@
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label :notes %>
-	  	<%= f.text_area :notes, class: "form-control", rows: "3" %>
+	  	<%= f.text_area :notes, class: "form-control", rows: "3", placeholder: "Enter any notes here, such as having a flexible schedule or strict commitments" %>
 	  </div>
 	  <%= f.submit(@shift.new_record? ? "Create Shift" : "Update Shift", class: 'btn btn-primary') %>
 	<% end %>
