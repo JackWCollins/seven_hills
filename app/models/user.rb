@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
     presence: true,
     on: :create,
     length: { minimum: 5 }
+
+  def member?
+  	self.member.to_s == 'member'
+  end
 end

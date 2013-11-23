@@ -7,28 +7,32 @@
 			  View Shift Calendar
 			<% end %>
 		</li>
-		<li>
-			<%= link_to(new_shift_path, class: "btn btn-success") do %>
-			  Create a Shift
-			<% end %>
-		</li>
-		<li>
-			<%= link_to(new_post_path, class: "btn btn-success") do %>
-			  New Post
-			<% end %>
-		</li>
+		<% unless @user.member? %>
+			<li>
+				<%= link_to(set_member_path, class: "btn btn-success") do %>
+				  Set yourself as a Member
+				<% end %>
+			</li>
+		<% end %>
 	</ul>
 </div>
 
-<div>
-	<ul>
-		<li>
-			<%= link_to(set_member_path, class: "btn btn-primary") do %>
-			  Set yourself as a Member
-			<% end %>
-		</li>
-	</ul>
-</div>
+<% if @user.member? %>
+	<div>
+		<ul class="list-inline">
+			<li>
+				<%= link_to(new_shift_path, class: "btn btn-success") do %>
+				  Create a Shift
+				<% end %>
+			</li>
+			<li>
+				<%= link_to(new_post_path, class: "btn btn-success") do %>
+				  New Post
+				<% end %>
+			</li>
+		</ul>
+	</div>
+<% end %>
 
 <ul class='nav nav-tabs'>
   <li class="<%= 'active' if params[:tab].nil? %>">

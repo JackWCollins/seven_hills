@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
     	redirect_to members_path
     end
   end
+
+  def require_member
+    access_denied unless logged_in? && current_user.member?
+  end
+
+  def access_denied
+    flash[:error] = "You must be a member to do that"
+    redirect_to members_path
+  end
 end

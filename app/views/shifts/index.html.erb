@@ -1,10 +1,11 @@
+<% if logged_in? %>
+	<div class="container">
+		<%= link_to(new_shift_path, class: "btn btn-success") do %>
+			Create a Shift
+		<% end %>
+	</div>
+<% end %>
 <div class="container">
-	<% if logged_in? %>
-	<%= link_to(new_shift_path, class: "btn btn-success") do %>
-		Create a Shift
-	<% end %>
-	<% end %>
-
 	<%= calendar @shifts do |shift| %>
 	  <div>
 	  	<% case shift.role %>

@@ -1,5 +1,5 @@
 class ShiftsController < ApplicationController
-  before_action :require_user, except: [:show, :index]
+  before_action :require_member, except: [:show, :index]
 
   def index
     @shifts = Shift.all
