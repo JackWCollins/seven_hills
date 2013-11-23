@@ -3,12 +3,12 @@
 	  <%= render 'shared/errors', obj: @shift %>
 	  <div class='form-group'%>
 	  	<%= f.label "Which Role?" %>
-	  	<%= f.select(:role, Shift::ROLE_TYPES) %>
+	  	<%= f.select(:role, Shift::ROLE_TYPES)%>
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label "Who will be working this shift?" %>
-	  	<%= f.text_field :person %>
 	  	<p class="help-block">If updating student count, enter the number of students</p>
+	  	<%= f.text_field :person, class: "form-control", placeholder: "Person Name OR Student Count" %>
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label "Date and Start Time:" %>
@@ -20,7 +20,7 @@
 	  </div>
 	  <div class='form-group'%>
 	  	<%= f.label :notes %>
-	  	<%= f.text_area :notes %>
+	  	<%= f.text_area :notes, class: "form-control", rows: "3" %>
 	  </div>
 	  <%= f.submit(@shift.new_record? ? "Create Shift" : "Update Shift", class: 'btn btn-primary') %>
 	<% end %>
