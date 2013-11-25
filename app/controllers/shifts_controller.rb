@@ -39,6 +39,10 @@ class ShiftsController < ApplicationController
   end
 
   def destroy
+    @shift = Shift.find(params[:id])
+    @shift.destroy
+    flash[:notice] = "The shift was deleted"
+    redirect_to shifts_path
   end
 
   private
