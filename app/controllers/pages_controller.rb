@@ -12,6 +12,15 @@ class PagesController < ApplicationController
   def experienced
   end
 
+  def pricing
+  end
+
+  def faq
+  end
+
+  def testimonials
+  end
+
   def facilities
   end
 
