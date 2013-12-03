@@ -10,27 +10,27 @@
 	  <div>
 	  	<% case shift.role %>
 	  	<% when "Pilot" %>
-		  	<%= link_to(shift_path(shift), class: "btn btn-primary btn-sm") do %>
+		  	<%= link_to(shift_path(shift), class: "calendar-btn cal-blue") do %>
 					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
 				<% end %>
 			<% when "Tandem Instructor" %>
-		  	<%= link_to(shift_path(shift), class: "btn btn-success btn-sm") do %>
+		  	<%= link_to(shift_path(shift), class: "calendar-btn cal-green") do %>
 					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
 				<% end %>
 			<% when "IAD Instructor" %>
-		  	<%= link_to(shift_path(shift), class: "btn btn-info btn-sm") do %>
+		  	<%= link_to(shift_path(shift), class: "calendar-btn cal-teal") do %>
 					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
 				<% end %>
 			<% when "Coach" %>
-		  	<%= link_to(shift_path(shift), class: "btn btn-warning btn-sm") do %>
+		  	<%= link_to(shift_path(shift), class: "calendar-btn cal-orange") do %>
 					  <%= shift.role %>: <%= shift.person %> <%= display_time(shift.date) %>-<%= display_time(shift.end_time) %>
 				<% end %>
 				<% when "Tandem Student Count" %>
-		  	<%= link_to(shift_path(shift), class: "btn btn-sm") do %>
+		  	<%= link_to(shift_path(shift), class: "calendar-btn cal-default") do %>
 					  <%= shift.role %>: <%= shift.person %> 
 				<% end %>
 				<% when "IAD Student Count" %>
-		  	<%= link_to(shift_path(shift), class: "btn btn-sm") do %>
+		  	<%= link_to(shift_path(shift), class: "calendar-btn cal-default") do %>
 					  <%= shift.role %>: <%= shift.person %> 
 				<% end %>
 			<% end %>

@@ -2,4 +2,128 @@
 	height: 100px;
 	min-width: 50px;
 	max-width: 150px;
+	word-wrap:break-word;
+}
+
+.calendar-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 0;
+  font-size: 12px;
+  min-width: 100px;
+  font-weight: normal;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.cal-blue {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.cal-blue:hover,
+.cal-blue:focus,
+.cal-blue:active,
+.cal-blue.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+  text-decoration: none;
+}
+
+.cal-default {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+.cal-default:hover,
+.cal-default:focus,
+.cal-default:active,
+.cal-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+  text-decoration: none;
+}
+
+.cal-orange {
+  color: #ffffff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.cal-orange:hover,
+.cal-orange:focus,
+.cal-orange:active,
+.cal-orange.active,
+.open .dropdown-toggle.btn-warning {
+  color: #ffffff;
+  background-color: #ed9c28;
+  border-color: #d58512;
+  text-decoration: none;
+}
+
+.cal-red {
+  color: #ffffff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.cal-red:hover,
+.cal-red:focus,
+.cal-red:active,
+.cal-red.active,
+.open .dropdown-toggle.btn-danger {
+  color: #ffffff;
+  background-color: #d2322d;
+  border-color: #ac2925;
+  text-decoration: none;
+}
+
+.cal-green {
+  color: #ffffff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.cal-green:hover,
+.cal-green:focus,
+.cal-green:active,
+.cal-green.active,
+.open .dropdown-toggle.btn-success {
+  color: #ffffff;
+  background-color: #47a447;
+  border-color: #398439;
+  text-decoration: none;
+}
+
+.cal-teal {
+  color: #ffffff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.cal-teal:hover,
+.cal-teal:focus,
+.cal-teal:active,
+.cal-teal.active,
+.open .dropdown-toggle.btn-info {
+  color: #ffffff;
+  background-color: #39b3d7;
+  border-color: #269abc;
+  text-decoration: none;
 }
