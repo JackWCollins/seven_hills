@@ -49,7 +49,10 @@
     <div class="well">
 			<ul class="list-inline">
 			  <li><h3><%= post.title %></h3></li>
-			  <li>(<%= post.creator.first_name %>)</li>
+			  <li>Posted by: <%= post.creator.first_name %></li>
+			  <% if logged_in? && current_user == post.creator %>
+			  	<li><%= link_to "Edit", edit_post_path(post) %></li>
+			  <% end %>
 		  </ul>
 	  <p><%= simple_format h(post.body) %></p>
 	</div>

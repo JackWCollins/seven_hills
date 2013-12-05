@@ -20,9 +20,27 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@post = Post.find(params[:id])
 	end
 
 	def update
+		@post = Post.find(params[:id])
+		if @post.update(post_params)
+			flash[:notice] = "Your post was updated"
+			redirect_to members_path
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		if @post.destroy
+			flash[:notice] = "Your post was deleted"
+			redirect_to '/members'
+		else
+			render :edit
+		end
 	end
 
   private

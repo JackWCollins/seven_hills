@@ -1,0 +1,7 @@
+<div class="container">
+	<ul class="list-inline">
+    <li><h3 class="featurette-heading">Edit Post</h2></li>
+  	<li><%= link_to "Delete Post", @post, :method => :delete, :confirm => "Are you sure?" %></li>
+  </ul>
+  <%= render 'form' %>
+</div>
