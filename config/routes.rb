@@ -24,5 +24,6 @@ SevenHills::Application.routes.draw do
   resources :posts
   resources :users, only: [:create, :edit, :show]
   resources :shifts
-
+  resources :tandem_students
+  resources :iad_students
 end
