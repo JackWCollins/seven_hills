@@ -11,12 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126160841) do
+ActiveRecord::Schema.define(version: 20140208211806) do
+
+  create_table "groups", force: true do |t|
+    t.string   "instruction"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.integer  "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservations", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "student_id"
+    t.datetime "reservation_date"
+    t.datetime "reservation_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,7 +52,6 @@ ActiveRecord::Schema.define(version: 20140126160841) do
   end
 
   create_table "students", force: true do |t|
-    t.string   "type"
     t.string   "name"
     t.string   "email"
     t.string   "phone"
@@ -45,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140126160841) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "instruction"
   end
 
   create_table "users", force: true do |t|
@@ -55,6 +73,11 @@ ActiveRecord::Schema.define(version: 20140126160841) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "member"
+    t.string   "phone"
+    t.integer  "age"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
   end
 
 end

@@ -21,9 +21,9 @@ SevenHills::Application.routes.draw do
   post '/set_member', to: 'users#member_authentication'
   patch '/set_member', to: 'users#member_authentication'
 
-  resources :posts
+  resources :posts, only: [:new, :create, :edit, :update]
   resources :users, only: [:create, :edit, :show]
   resources :shifts
-  resources :tandem_students
-  resources :iad_students
+  resources :groups, only: [:new, :create]
+  resources :reservations, only: [:new, :create, :index]
 end

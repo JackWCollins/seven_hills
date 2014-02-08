@@ -1,3 +1,0 @@
-class IadStudent < Student
-
-end

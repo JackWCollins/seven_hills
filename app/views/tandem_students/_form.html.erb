@@ -2,6 +2,11 @@
 	<%= form_for @tandem_student do |f| %>
 	  <%= render 'shared/errors', obj: @tandem_student %>
 	  <div class='form-group'%>
+	  	<%= f.label "Group Size" %>
+	  	<%= f.test_field :group_size, class: "form-control", placeholder: "Group Size" %>
+	  </div>
+	  <p class="help-block">Please specify one person as the contact person for the group. This person will be responsible for the updating the group's time</p>
+	  <div class='form-group'%>
 	  	<%= f.label "Name" %>
 	  	<%= f.test_field :name, class: "form-control", placeholder: "Name" %>
 	  </div>
