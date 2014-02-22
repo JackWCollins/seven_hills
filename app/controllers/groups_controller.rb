@@ -15,6 +15,8 @@ class GroupsController < ApplicationController
 			flash[:notice] = "Group Created!"
 			redirect_to @group
 		else
+			flash[:danger] = "Please fix the errors below."
+			render :new
 		end
 	end
 

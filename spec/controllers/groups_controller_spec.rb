@@ -23,27 +23,45 @@ describe GroupsController do
 	end
 
 	describe "POST create" do
-		context "with logged in user" do
-			it "redirects to the group show page" do 
-				set_current_user
-				post :create, group: Fabricate.attributes_for(:group)
-				expect(response).to redirect_to group_path(assigns[:group])
+		context "with valid input" do
+
+			context "with logged in user" do
+				it "redirects to the group show page" do 
+					set_current_user
+					post :create, group: Fabricate.attributes_for(:group)
+					expect(response).to redirect_to group_path(assigns[:group])
+				end
+
+				it "sets the flash notice message" do
+					set_current_user
+					post :create, group: Fabricate.attributes_for(:group)
+					expect(flash[:notice]).to be_present
+				end
 			end
 
-			it "sets the flash notice message" do
-				set_current_user
-				post :create, group: Fabricate.attributes_for(:group)
-				expect(flash[:notice]).to be_present
+			context "without logged in user" do
+				it "redirects to the login path" do
+					post :create, group: Fabricate.attributes_for(:group)
+					expect(response).to redirect_to login_path
+				end
+				it "sets the flash danger" do
+					post :create, group: Fabricate.attributes_for(:group)
+					expect(flash[:danger]).to be_present
+				end
 			end
+
 		end
-		context "without logged in user" do
-			it "redirects to the login path" do
-				post :create, group: Fabricate.attributes_for(:group)
-				expect(response).to redirect_to login_path
-			end
-			it "sets the flash danger" do
-				post :create, group: Fabricate.attributes_for(:group)
+
+		context "with invalid input" do
+			it "sets the flash danger message" do
+				set_current_user
+				post :create, group: {instruction: "Tandem"}
 				expect(flash[:danger]).to be_present
+			end
+			it "renders the new template" do
+				set_current_user
+				post :create, group: {instruction: "Tandem"}
+				expect(response).to render_template :new
 			end
 		end
 	end
