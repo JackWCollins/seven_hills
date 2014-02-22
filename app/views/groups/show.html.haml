@@ -2,6 +2,8 @@
   .row
     .col-sm-10.col-sm-offset-1
       %h3 Your Group
+      %p
+        = link_to "Set yourself as the first Skydiver!", students_path(group_id: @group.id), method: :post, class: "btn btn-primary"
       %table
         %thead
           %tr

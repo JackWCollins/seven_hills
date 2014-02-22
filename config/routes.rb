@@ -26,4 +26,5 @@ SevenHills::Application.routes.draw do
   resources :shifts
   resources :groups, only: [:new, :create, :show]
   resources :reservations, only: [:new, :create, :index]
+  resources :students, only: [:new, :create]
 end
