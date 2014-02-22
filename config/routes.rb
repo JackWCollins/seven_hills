@@ -24,6 +24,6 @@ SevenHills::Application.routes.draw do
   resources :posts, only: [:new, :create, :edit, :update]
   resources :users, only: [:create, :edit, :show]
   resources :shifts
-  resources :groups, only: [:new, :create]
+  resources :groups, only: [:new, :create, :show]
   resources :reservations, only: [:new, :create, :index]
 end

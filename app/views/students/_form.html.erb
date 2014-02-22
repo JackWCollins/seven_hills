@@ -1,6 +1,6 @@
 <div class="well">
-	<%= form_for @tandem_student do |f| %>
-	  <%= render 'shared/errors', obj: @tandem_student %>
+	<%= form_for @student do |f| %>
+	  <%= render 'shared/errors', obj: @student %>
 	  <div class='form-group'%>
 	  	<%= f.label "Group Size" %>
 	  	<%= f.test_field :group_size, class: "form-control", placeholder: "Group Size" %>

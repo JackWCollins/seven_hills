@@ -21,4 +21,25 @@ describe GroupsController do
 			end
 		end
 	end
+
+	describe "POST create" do
+		context "with logged in user" do
+			it "redirects to the group show page" do 
+				set_current_user
+				post :create, group: Fabricate.attributes_for(:group)
+				expect(response).to redirect_to group_path(assigns[:group])
+			end
+
+			it "sets the flash notice message" do
+				set_current_user
+				post :create, group: Fabricate.attributes_for(:group)
+				expect(flash[:notice]).to be_present
+			end
+
+			it "sets the logged in user as the first skydiver in the group" do
+				
+			end
+		end
+		context "without logged in user"
+	end
 end
