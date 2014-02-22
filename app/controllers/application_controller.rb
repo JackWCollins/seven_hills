@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
 
   def require_user
     if !logged_in?
-    	flash[:error] = "Must be logged in to do that."
-    	redirect_to members_path
+    	flash[:danger] = "Must be logged in to do that."
+    	redirect_to login_path
     end
   end
 
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def access_denied
-    flash[:error] = "You must be a member to do that"
+    flash[:danger] = "You must be a member to do that"
     redirect_to members_path
   end
 end

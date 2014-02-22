@@ -35,11 +35,16 @@ describe GroupsController do
 				post :create, group: Fabricate.attributes_for(:group)
 				expect(flash[:notice]).to be_present
 			end
-
-			it "sets the logged in user as the first skydiver in the group" do
-				
+		end
+		context "without logged in user" do
+			it "redirects to the login path" do
+				post :create, group: Fabricate.attributes_for(:group)
+				expect(response).to redirect_to login_path
+			end
+			it "sets the flash danger" do
+				post :create, group: Fabricate.attributes_for(:group)
+				expect(flash[:danger]).to be_present
 			end
 		end
-		context "without logged in user"
 	end
 end

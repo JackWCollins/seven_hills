@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+	before_action :require_user, except: [:new]
+
 	def new
 		if !logged_in?
 			flash[:success] = "We need your contact information before creating a group. Please register below!"
