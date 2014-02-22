@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 			redirect_to register_path
 		end
 		@group = Group.new
+		@reservation = Reservation.new
 	end
 
 	def create

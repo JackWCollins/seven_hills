@@ -37,6 +37,19 @@ describe GroupsController do
 					post :create, group: Fabricate.attributes_for(:group)
 					expect(flash[:notice]).to be_present
 				end
+
+				it "creates a student from the currently signed in user" do
+					alice = Fabricate(:user)
+					set_current_user(alice)
+					post :create, group: Fabricate.attributes_for(:group)
+					expect(Student.count).to eq(1)
+				end
+
+				it "associates the signed in user as the contact person" do
+					set_current_user
+					post :create, group: Fabricate.attributes_for(:group)
+					expect(Reservation.first.student).to eq(1)
+				end
 			end
 
 			context "without logged in user" do
