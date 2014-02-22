@@ -16,6 +16,15 @@ class StudentsController < ApplicationController
 				redirect_to group_path(@group)
 			end
 		else
+			@group = Group.find(params[:group_id])
+			@student = Student.new(student_params)
+			if @student.save
+				flash[:success] = "You have been added to the group!"
+				redirect_to group_path(@group)
+			else
+				flash[:danger] = "Please fix the errors below"
+				render :new
+			end
 		end
 	end
 
