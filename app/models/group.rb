@@ -1,7 +1,6 @@
 class Group < ActiveRecord::Base
-  has_many :reservations
-  has_many :students, through: :reservations
+  belongs_to :student
+  belongs_to :reservation
 
-  validates_presence_of :size
-  INSTRUCTION_TYPES = ["Tandem", "Instructor Assisted Deployment"]
+  
 end

@@ -4,27 +4,14 @@ class StudentsController < ApplicationController
 	end
 
 	def create
-		if logged_in?
-			@group = Group.find(params[:group_id])
-			@student = Student.new
-			@student.attributes = @student.attributes.merge current_user.attributes.select { |user| @student.attributes.keys.include? user }
-			if @student.save
-				flash[:success] = "You've been added to the group!"
-				redirect_to group_path(@group)
-			else
-				flash[:danger] = "Group could not be created. Please call the office for help."
-				redirect_to group_path(@group)
-			end
+		@reservation = Reservation.find(params[:reservation_id])
+		@student = Student.new(student_params)
+		if @student.save
+			flash[:success] = "You have been added to the reservation!"
+			redirect_to reservation_path(@reservation)
 		else
-			@group = Group.find(params[:group_id])
-			@student = Student.new(student_params)
-			if @student.save
-				flash[:success] = "You have been added to the group!"
-				redirect_to group_path(@group)
-			else
-				flash[:danger] = "Please fix the errors below"
-				render :new
-			end
+			flash[:danger] = "Please fix the errors below"
+			render :new
 		end
 	end
 

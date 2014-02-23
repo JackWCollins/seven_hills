@@ -11,13 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222152634) do
+ActiveRecord::Schema.define(version: 20140223183813) do
 
   create_table "groups", force: true do |t|
-    t.string   "instruction"
-    t.string   "contact_name"
-    t.string   "contact_email"
-    t.integer  "size"
+    t.integer  "reservation_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,12 +29,12 @@ ActiveRecord::Schema.define(version: 20140222152634) do
   end
 
   create_table "reservations", force: true do |t|
-    t.integer  "group_id"
-    t.integer  "student_id"
     t.datetime "reservation_date"
     t.datetime "reservation_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "instruction"
   end
 
   create_table "shifts", force: true do |t|

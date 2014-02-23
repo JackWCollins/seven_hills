@@ -1,9 +1,7 @@
 .container
   .row
     .col-sm-10.col-sm-offset-1
-      %h3 Your Group
-      %p
-        = link_to "Set yourself as the first Skydiver!", students_path(group_id: @group.id), method: :post, class: "btn btn-primary"
+      %h3 Your Reservation
       %table
         %thead
           %tr
@@ -12,11 +10,9 @@
             %th Active?
             %th Reference ID
         %tbody
-          - @group.students.each do |student|
+          - @reservation.students.each do |student|
             %tr
               %td= student.first_name
               %td= student.email
-              %td= student.active
               %td
-
-      
+              %td
