@@ -13,10 +13,11 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		@reservation = Reservation.new(reservation_params)
 		@student = Student.new
 		@student.attributes = @student.attributes.merge current_user.attributes.select { |user| @student.attributes.keys.include? user }
-		@reservation = Reservation.new(creator: current_user)
+		@reservation = Reservation.new(reservation_params)
+		@reservation.creator = current_user
+		binding.pry
 		@reservation.students << @student
 		Group.transaction do
 			begin

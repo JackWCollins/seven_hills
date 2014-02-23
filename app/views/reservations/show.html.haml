@@ -1,18 +1,21 @@
 .container
   .row
     .col-sm-10.col-sm-offset-1
-      %h3 Your Reservation
-      %table
+      %h3 Your #{@reservation.instruction} Reservation
+      %h5 Date: #{@reservation.reservation_date.nil? ? "You have not picked a date!" : @reservation.reservation_date}
+      %h5 Time: #{@reservation.reservation_time.nil? ? "You have not picked a time!" : @reservation.reservation_date}
+      = link_to "Add a Skydiver", new_student_path(reservation_id: @reservation.id), class: "btn btn-primary"
+      %table.table
         %thead
           %tr
-            %th Name
+            %th First Name
+            %th Last Name
             %th Email
-            %th Active?
-            %th Reference ID
+            %th 
         %tbody
           - @reservation.students.each do |student|
             %tr
               %td= student.first_name
+              %td= student.last_name
               %td= student.email
-              %td
               %td

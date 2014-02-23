@@ -1,0 +1,16 @@
+.col-sm-10.col-sm-offset-1
+	.well
+		= bootstrap_form_for @student, html: { class: "form-horizontal" } do |f| 
+			%fieldset
+				= f.text_field :first_name, placeholder: "Jimmy"
+				= f.text_field :last_name, placeholder: "Skydiver"
+				= f.email_field :email, placeholder: "skydiver@gmail.com"
+				= f.text_field :phone, label: "Phone Number", placeholder: "608-555-1032"
+				= f.text_field :age, placeholder: "18+ only"
+				= f.text_field :street_address, placeholder: "123 Dropzone Lane"
+				= f.text_field :city, placeholder: "Madison"
+				= f.text_field :state, placeholder: "WI"
+				= f.text_area :notes, placeholder: "Please place any relevant notes or requests here"
+				= hidden_field_tag :reservation_id, @reservation.id
+			%fieldset.control-group
+				%input(type="submit" value="Register" class="btn btn-primary")
