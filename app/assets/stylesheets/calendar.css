@@ -1,8 +1,8 @@
 .calendar td {
-	height: 100px;
-	min-width: 50px;
-	max-width: 150px;
-	word-wrap:break-word;
+  height: 100px;
+  min-width: 50px;
+  max-width: 150px;
+  word-wrap:break-word;
 }
 
 .calendar-btn {

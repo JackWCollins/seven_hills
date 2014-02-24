@@ -4,6 +4,12 @@ class ReservationsController < ApplicationController
   def home
   end
 
+  def index
+  	@reservations = Reservation.all
+  	@year = Time.now.year
+  	@month = Time.now.month
+  end
+
   def new
 		if !logged_in?
 			flash[:success] = "We need your contact information before creating a reservation. Please register below!"
@@ -17,7 +23,6 @@ class ReservationsController < ApplicationController
 		@student.attributes = @student.attributes.merge current_user.attributes.select { |user| @student.attributes.keys.include? user }
 		@reservation = Reservation.new(reservation_params)
 		@reservation.creator = current_user
-		binding.pry
 		@reservation.students << @student
 		Group.transaction do
 			begin

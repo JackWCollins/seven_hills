@@ -9,7 +9,9 @@ class Shift < ActiveRecord::Base
 	validates :end_time, presence: true
 	validates :person, presence: true
 
-	ROLE_TYPES = ["Pilot", "Tandem Instructor", "IAD Instructor", "Coach", "Tandem Student Count", "IAD Student Count"]
+	scope :by_month, lambda { |year, month| where("date >= ? and date <= ?", "#{year}-#{month}-01", "#{year}-#{month}-31") }
+
+	ROLE_TYPES = ["Pilot", "Tandem Instructor", "IAD Instructor", "Coach"]
 
   def start_time
   	date
