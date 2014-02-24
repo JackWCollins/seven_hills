@@ -2,8 +2,6 @@ class ShiftsController < ApplicationController
   before_action :require_member, except: [:index]
 
   def index
-    @year = Time.now.year
-    @month = Time.now.month
     @shifts = Shift.all
   end
 

@@ -1,2 +1,6 @@
-.col-sm-12
-  = calendar(year: @year, month: @month, abbrev: false)
+.container
+  %h3 Existing Reservations
+
+.container
+  = calendar @reservations do |res|
+    = link_to "#{res.instruction}: #{res.students.count} Students at #{display_time(res.reservation_time)}", res, class: "calendar-btn cal-blue"

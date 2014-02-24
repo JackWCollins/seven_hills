@@ -6,8 +6,6 @@ class ReservationsController < ApplicationController
 
   def index
   	@reservations = Reservation.all
-  	@year = Time.now.year
-  	@month = Time.now.month
   end
 
   def new
