@@ -12,16 +12,3 @@ body {
 	margin-top:8px;
 	margin-right:10px;
 }
-
-table
-    border-bottom: 1px solid #DDD
-    tbody, thead
-      tr
-        color: white
-        th, td
-          text-align: center
-        td
-          img
-            margin-right: 10px
-          &.extra-padding
-            padding-top: 18px
