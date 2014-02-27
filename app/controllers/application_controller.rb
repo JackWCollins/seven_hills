@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
 
   def access_denied
     flash[:danger] = "You must be a member to do that"
-    redirect_to members_path
+    redirect_to root_path
   end
 end

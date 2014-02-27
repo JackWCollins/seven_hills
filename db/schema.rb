@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227025702) do
+ActiveRecord::Schema.define(version: 20140227032731) do
 
   create_table "groups", force: true do |t|
     t.integer  "reservation_id"
@@ -80,12 +80,12 @@ ActiveRecord::Schema.define(version: 20140227025702) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
-    t.string   "member"
     t.string   "phone"
     t.integer  "age"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
+    t.boolean  "member"
   end
 
 end

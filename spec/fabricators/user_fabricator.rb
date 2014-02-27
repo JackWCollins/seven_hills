@@ -9,3 +9,11 @@ Fabricator(:user) do
 	city { Faker::Address.city }
 	state { Faker::Address.state }
 end
+
+Fabricator(:member, from: :user) do
+	member true
+end
+
+Fabricator(:admin, from: :member) do
+	admin true
+end
