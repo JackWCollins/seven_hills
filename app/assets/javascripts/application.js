@@ -15,7 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
-
-$('.submittable').live('change', function() {
-	$(this).parents('form:first').submit();
-})
+//= require bootstrap-datepicker

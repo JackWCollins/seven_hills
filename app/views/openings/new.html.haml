@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-sm-4.col-sm-offset-1
+      = bootstrap_form_for @opening do |f|
+        %h3 Create an Opening
+        %fieldset
+          = f.select(:instruction, Reservation::INSTRUCTION_TYPES)
+          = f.text_field :date, class: "datepicker"
+          = f.text_field :time
+        %fieldset.actions.control-group.col-sm-offset-2
+          .controls
+            %input(type="submit" value="Continue" class="btn btn-primary")
