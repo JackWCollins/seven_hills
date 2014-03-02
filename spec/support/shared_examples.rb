@@ -15,9 +15,9 @@ shared_examples "requires member" do
 end
 
 shared_examples "requires admin" do
-	it "redirect_to members_path" do
-		session[:user_id] = Fabricate(:admin).id
+	it "redirects to members_path" do
+		session[:user_id] = Fabricate(:user).id
 		action
-		expect(response).to redirect_to members_path
+		expect(response).to redirect_to root_path
 	end
 end

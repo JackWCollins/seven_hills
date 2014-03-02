@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-sm-4.col-sm-offset-1
+      %h3 Create an Opening
+      = bootstrap_form_for [:admin, @opening] do |f|
+        %fieldset
+          = f.select(:instruction, Reservation::INSTRUCTION_TYPES)
+          = f.text_field :date, class: "datepicker"
+          = f.time_select :time, {minute_step: 15, ampm: true}
+        %fieldset.actions.control-group
+          .controls
+            = f.submit "Create Opening", class: "btn btn-primary"

@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     length: { minimum: 5 }
 
   def member?
-  	self.member.to_s == 'member'
+  	self.member
+  end
+
+  def admin?
+    self.admin
   end
 end

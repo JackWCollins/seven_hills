@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
 	def member_authentication
 		if params[:member] == User::PASSWORD 
-			@user.member = "member"
+			@user.member = true
 			if @user.save
 			  flash[:notice] = "You are now saved as a member and have edit capabilities for the schedule."
 			  redirect_to '/members'
