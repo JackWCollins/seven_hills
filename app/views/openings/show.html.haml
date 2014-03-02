@@ -2,8 +2,8 @@
   .row
     .col-sm-10.col-sm-offset-1
       %h3 Type: #{@opening.instruction} 
-      %h5 Date: #{display_day(@opening.date)}
-      %h5 Time: #{display_time(@opening.time)}
+      %h3 Date: #{display_day(@opening.date)}
+      %h3 Time: #{display_time(@opening.time)}
   .row
     .col-sm-10.col-sm-offset-1
       = link_to "Edit Opening", edit_admin_opening_path(@opening), class: "btn btn-primary"

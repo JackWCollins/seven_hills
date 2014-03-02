@@ -27,7 +27,8 @@ SevenHills::Application.routes.draw do
   resources :reservations, only: [:new, :create, :show, :index]
   get '/reservations_home', to: 'reservations#home'
   resources :students, only: [:new, :create]
+  resources :openings, only: [:index, :show]
   namespace :admin do
-    resources :openings
+    resources :openings, only: [:new, :create, :edit, :update, :destroy]
   end
 end

@@ -8,19 +8,11 @@ class Admin::OpeningsController < AdminsController
 		@opening.date = params[:opening][:date].nil? ? Time.now.to_date : DateTime.strptime(params[:opening][:date], "%m/%d/%Y") + 7.hours #Time zone offset
 		if @opening.save
 			flash[:notice] = "Opening was created."
-			redirect_to admin_openings_path
+			redirect_to openings_path
 		else
 			flash[:danger] = "Please pick a date."
 			render :new
 		end
-	end
-
-	def index
-		@openings = Opening.all
-	end
-
-	def show
-		@opening = Opening.find(params[:id])
 	end
 
 	def edit
@@ -31,7 +23,7 @@ class Admin::OpeningsController < AdminsController
 		@opening = Opening.find(params[:id])
 		if @opening.update(opening_params)
 			flash[:notice] = "This opening was updated."
-		  redirect_to admin_opening_path(@opening)
+		  redirect_to opening_path(@opening)
 		else
 			flash[:danger] = "This opening could not be updated. Please delete and create a new one."
 			render :edit
@@ -42,7 +34,7 @@ class Admin::OpeningsController < AdminsController
 		opening = Opening.find(params[:id])
 		opening.destroy
 		flash[:notice] = "Opening was deleted."
-		redirect_to admin_openings_path
+		redirect_to openings_path
 	end
 
 	private
