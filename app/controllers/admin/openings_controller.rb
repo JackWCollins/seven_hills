@@ -23,6 +23,28 @@ class Admin::OpeningsController < AdminsController
 		@opening = Opening.find(params[:id])
 	end
 
+	def edit
+		@opening = Opening.find(params[:id])
+	end
+
+	def update
+		@opening = Opening.find(params[:id])
+		if @opening.update(opening_params)
+			flash[:notice] = "This opening was updated."
+		  redirect_to admin_opening_path(@opening)
+		else
+			flash[:danger] = "This opening could not be updated. Please delete and create a new one."
+			render :edit
+		end
+	end
+
+	def destroy
+		opening = Opening.find(params[:id])
+		opening.destroy
+		flash[:notice] = "Opening was deleted."
+		redirect_to admin_openings_path
+	end
+
 	private
 
 	def opening_params

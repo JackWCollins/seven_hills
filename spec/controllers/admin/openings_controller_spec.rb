@@ -54,7 +54,59 @@ describe Admin::OpeningsController do
 
 	describe "GET show" do
 		it_behaves_like "requires admin" do
-			let(:action) { get :show }
+			let(:action) { get :show, id: 1 }
+		end
+	end
+
+	describe "DELETE destory" do
+		it_behaves_like "requires admin" do
+			let (:action) { delete :destroy, id: 1 }
+		end
+
+		it "should destroy the opening" do
+			set_current_admin
+			opening = Fabricate(:opening)
+			delete :destroy, id: opening.id
+			expect(Opening.count).to eq(0)
+		end
+
+		it "redirects to the openings calendar" do
+			set_current_admin
+			opening = Fabricate(:opening)
+			delete :destroy, id: opening.id
+			expect(response).to redirect_to admin_openings_path
+		end
+	end
+
+	describe "GET edit" do
+		before { set_current_admin }
+		it_behaves_like "requires admin" do
+			let(:action) { get :edit, id: 1 }
+		end
+
+		it "sets the @opening variable" do
+			opening = Fabricate(:opening)
+			get :edit, id: opening.id
+			expect(assigns(:opening)).to be_present
+		end
+	end
+
+	describe "PATCH update" do
+		before { set_current_admin }
+		it_behaves_like "requires admin" do
+			let(:action) { patch :update, id: 1 }
+		end
+
+		it "updates the @opening" do
+			@opening = Fabricate(:opening)
+			patch :update, id: @opening.id, opening: {instruction: "Instructor Assisted Deployment"}
+			expect(Opening.first.instruction).to eq("Instructor Assisted Deployment")
+		end
+
+		it "redirects to the opening show page" do
+			@opening = Fabricate(:opening)
+			patch :update, id: @opening.id, opening: {instruction: "Instructor Assisted Deployment"}
+			expect(response).to redirect_to admin_opening_path(@opening)
 		end
 	end
 end

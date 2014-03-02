@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-sm-4.col-sm-offset-1
+      %h3 Edit Opening
+      %h3 Date: #{display_day(@opening.date)}
+      %p If you want to change the date, please delete this opening and create a new one.
+      = bootstrap_form_for [:admin, @opening] do |f|
+        %fieldset
+          = f.select(:instruction, Reservation::INSTRUCTION_TYPES)
+          = f.time_select :time, {minute_step: 15, ampm: true}
+        %fieldset.actions.control-group
+          .controls
+            = f.submit "Update Opening", class: "btn btn-primary", method: :patch
