@@ -66,8 +66,4 @@ describe ReservationsController do
 
 		end
 	end
-
-	describe "GET index" do
-
-	end
 end

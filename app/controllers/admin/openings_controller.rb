@@ -5,8 +5,9 @@ class Admin::OpeningsController < AdminsController
 
 	def create
 		@opening = Opening.new(opening_params)
+		@opening.date = DateTime.strptime(params[:opening][:date], "%m/%d/%Y")
 		if @opening.save
-			flash[:success] = "Opening was created."
+			flash[:notice] = "Opening was created."
 			redirect_to admin_openings_path
 		else
 			flash[:danger] = "Please fix the errors below."
@@ -21,6 +22,6 @@ class Admin::OpeningsController < AdminsController
 	private
 
 	def opening_params
-		params.require(:opening).permit(:instruction, :date, :time)
+		params.require(:opening).permit(:instruction, :time)
 	end
 end

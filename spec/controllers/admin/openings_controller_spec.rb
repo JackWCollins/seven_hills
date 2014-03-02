@@ -29,7 +29,7 @@ describe Admin::OpeningsController do
 
 			it "sets the flash success message" do
 				post :create, opening: { instruction: "Tandem", date: "03/06/2015", time: "12:30" }
-				expect(flash[:success]).to be_present
+				expect(flash[:notice]).to be_present
 			end
 		end
 
@@ -43,6 +43,12 @@ describe Admin::OpeningsController do
 				post :create, opening: { instruction: "Tandem" }
 				expect(flash[:danger]).to be_present
 			end
+		end
+	end
+
+	describe "GET index" do
+		it_behaves_like "requires admin" do
+			let(:action) { get :index }
 		end
 	end
 end

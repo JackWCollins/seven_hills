@@ -1,0 +1,6 @@
+.container
+  %h3 Openings
+
+.container
+  = calendar @openings do |opening|
+    = link_to "#{opening.instruction}: #{display_time(opening.time)}", admin_opening_path(opening), class: "calendar-btn cal-blue"
