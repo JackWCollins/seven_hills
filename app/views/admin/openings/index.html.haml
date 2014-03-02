@@ -3,4 +3,8 @@
 
 .container
   = calendar @openings do |opening|
-    = link_to "#{opening.instruction}: #{display_time(opening.time)}", admin_opening_path(opening), class: "calendar-btn cal-blue"
+    - case opening.instruction
+    - when "Tandem"
+      = link_to "#{opening.instruction}: #{display_time(opening.time)}", admin_opening_path(opening), class: "calendar-btn cal-blue"
+    -when "Instructor Assisted Deployment"
+      = link_to "#{opening.instruction}: #{display_time(opening.time)}", admin_opening_path(opening), class: "calendar-btn cal-green"

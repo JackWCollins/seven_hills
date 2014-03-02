@@ -51,4 +51,10 @@ describe Admin::OpeningsController do
 			let(:action) { get :index }
 		end
 	end
+
+	describe "GET show" do
+		it_behaves_like "requires admin" do
+			let(:action) { get :show }
+		end
+	end
 end
