@@ -6,5 +6,8 @@
       %h3 Time: #{display_time(@opening.time)}
   .row
     .col-sm-10.col-sm-offset-1
-      = link_to "Edit Opening", edit_admin_opening_path(@opening), class: "btn btn-primary"
-      = link_to "Delete Opening", admin_opening_path(@opening), method: :delete, confirm: "Are you sure you want to delete this opening?", class: "btn btn-danger"
+      - if admin?
+        = link_to "Edit Opening", edit_admin_opening_path(@opening), class: "btn btn-primary"
+        = link_to "Delete Opening", admin_opening_path(@opening), method: :delete, confirm: "Are you sure you want to delete this opening?", class: "btn btn-danger"
+      - if logged_in?
+        = link_to "Reserve this time!", "#", class: "btn btn-primary"

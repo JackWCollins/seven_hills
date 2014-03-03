@@ -5,6 +5,6 @@
   = calendar @openings do |opening|
     - case opening.instruction
     - when "Tandem"
-      = link_to "#{opening.instruction}: #{display_time(opening.time)}", admin_opening_path(opening), class: "calendar-btn cal-blue"
+      = link_to "#{opening.instruction}: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-blue"
     -when "Instructor Assisted Deployment"
-      = link_to "#{opening.instruction}: #{display_time(opening.time)}", admin_opening_path(opening), class: "calendar-btn cal-green"
+      = link_to "#{opening.instruction}: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-green"
