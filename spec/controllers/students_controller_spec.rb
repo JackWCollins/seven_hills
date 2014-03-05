@@ -18,10 +18,10 @@ describe StudentsController do
 	describe "POST create" do
 		context "with valid input" do
 
-			it "redirects to the reservation page" do
+			it "redirects to the reserve opening path with student id" do
 				reservation = Fabricate(:reservation)
 				post :create, student: Fabricate.attributes_for(:student), reservation_id: reservation.id
-				expect(response).to redirect_to reservation_path(reservation)
+				expect(response).to redirect_to reserve_openings_path student_id: 1
 			end
 
 			it "sets the flash notice message" do

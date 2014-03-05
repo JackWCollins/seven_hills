@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-sm-4.col-sm-offset-1
+      %h3 Reserve Your Skydive
+      = form_tag '/openings/search', remote: true do
+        = label_tag "Select a Date:"
+        = text_field_tag :date, params[:date] || '', class: "form-control", id: "reservation-date"
+        = submit_tag "Search Date for Openings", class: "btn btn-primary"

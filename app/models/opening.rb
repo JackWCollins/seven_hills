@@ -1,5 +1,4 @@
 class Opening < ActiveRecord::Base
-	belongs_to :student
 
 	validates_presence_of :date, :time, :instruction
 
@@ -7,5 +6,9 @@ class Opening < ActiveRecord::Base
 
 	def start_time
 		date
+	end
+
+	def reserve_opening
+
 	end
 end

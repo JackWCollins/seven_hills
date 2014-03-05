@@ -1,4 +1,6 @@
 class Student < ActiveRecord::Base
+	has_one :opening
+
 	has_many :groups
 	has_many :reservations, through: :groups
 

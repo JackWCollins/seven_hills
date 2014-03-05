@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
 		if @student.save
 			@reservation.students << @student
 			flash[:notice] = "You have been added to the reservation!"
-			redirect_to reservation_path(@reservation)
+			redirect_to reserve_openings_path student_id: @student.id
 		else
 			flash[:danger] = "Please fix the errors below before proceeding."
 			render :new

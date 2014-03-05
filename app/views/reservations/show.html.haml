@@ -11,11 +11,13 @@
             %th First Name
             %th Last Name
             %th Email
-            %th 
+            %th Date
+            %th Time
         %tbody
           - @reservation.students.each do |student|
             %tr
               %td= student.first_name
               %td= student.last_name
               %td= student.email
-              %td
+              %td= student.opening.nil? ? "Click here to pick a date for #{student.first_name}" : display_day(student.opening.date)
+              %td= student.opening.nil? ? "Click here to pick a date for #{student.first_name}" : display_time(student.opening.time)
