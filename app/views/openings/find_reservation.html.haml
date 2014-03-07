@@ -6,3 +6,13 @@
         = label_tag "Select a Date:"
         = text_field_tag :date, params[:date] || '', class: "form-control", id: "reservation-date"
         = submit_tag "Search Date for Openings", class: "btn btn-primary"
+  .row
+    .col-sm-10.col-sm-offset-1
+      %ul#opening-search.hidden
+        - if @openings.nil?
+          .row
+            %p
+              No openings were found for that date
+        - else
+          = @openings.each do |opening|
+            = link_to "#{opening.instruction}: #{display_time(opening.time)}", opening_path(opening), class: "btn btn-primary"

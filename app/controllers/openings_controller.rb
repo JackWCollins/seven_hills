@@ -16,6 +16,7 @@ class OpeningsController < ApplicationController
 	end
 
 	def search
+		@openings = Opening.search_by_date(params[:date])
 		respond_to do |format|
       format.html
       format.js

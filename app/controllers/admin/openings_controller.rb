@@ -5,7 +5,7 @@ class Admin::OpeningsController < AdminsController
 
 	def create
 		@opening = Opening.new(opening_params)
-		@opening.date = params[:opening][:date].nil? ? Time.now.to_date : DateTime.strptime(params[:opening][:date], "%m/%d/%Y") + 7.hours #Time zone offset
+		@opening.date = params[:opening][:date].nil? ? Time.now.to_date : (DateTime.strptime(params[:opening][:date], "%m/%d/%Y")).to_date #Time zone offset
 		if @opening.save
 			flash[:notice] = "Opening was created."
 			redirect_to openings_path
