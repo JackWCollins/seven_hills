@@ -13,6 +13,7 @@ gem 'bootstrap_form'
 gem 'haml-rails'
 gem 'fabrication'
 gem 'faker'
+gem 'gon'
 
 group :development do
   gem 'sqlite3'
