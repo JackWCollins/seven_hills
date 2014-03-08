@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305023146) do
+ActiveRecord::Schema.define(version: 20140308224056) do
 
   create_table "groups", force: true do |t|
     t.integer  "reservation_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140305023146) do
     t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "open"
+    t.boolean  "reserved",    default: false
   end
 
   create_table "posts", force: true do |t|

@@ -18,7 +18,8 @@ class ReservationsController < ApplicationController
 
 	def create
 		@student = Student.new
-		@student.attributes = @student.attributes.merge current_user.attributes.select { |user| @student.attributes.keys.include? user }
+		@student.update_attributes(first_name: current_user.first_name, last_name: current_user.last_name, email: current_user.email, phone: current_user.phone, age: current_user.age, street_address: current_user.street_address, city: current_user.city, state: current_user.state)
+		#@student.attributes = @student.attributes.merge current_user.attributes.select { |user| @student.attributes.keys.include? user }
 		@reservation = Reservation.new(reservation_params)
 		@reservation.creator = current_user
 		@reservation.students << @student
