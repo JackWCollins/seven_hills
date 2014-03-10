@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
 		@reservation = Reservation.find(params[:reservation_id])
 		@student = Student.new(student_params)
 		if @student.save
+			flash[:notice] = "You've been added to the group! Please pick your skydiving date and time!"
 			@reservation.students << @student
 			redirect_to reserve_openings_path student_id: @student.id
 		else

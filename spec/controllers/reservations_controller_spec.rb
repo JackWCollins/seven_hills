@@ -26,10 +26,10 @@ describe ReservationsController do
 		context "with valid input" do
 
 			context "with logged in user" do
-				it "redirects to the reservation show page" do 
+				it "redirects to the find_reservation page" do 
 					set_current_user
 					post :create, reservation: Fabricate.attributes_for(:reservation)
-					expect(response).to redirect_to reservation_path(assigns[:reservation])
+					expect(response).to redirect_to reserve_openings_path(student_id: 1)
 				end
 
 				it "sets the flash notice message" do

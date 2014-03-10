@@ -4,12 +4,10 @@ class Opening < ActiveRecord::Base
 
 	INSTRUCTION_TYPES = ["Tandem", "Instructor Assisted Deployment"]
 
+	scope :open, -> { where(reserved: false)}
+
 	def start_time
 		date
-	end
-
-	def reserve_opening
-
 	end
 
 	def self.search_by_date(search_date)

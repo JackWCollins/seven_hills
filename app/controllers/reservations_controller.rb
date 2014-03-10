@@ -19,7 +19,6 @@ class ReservationsController < ApplicationController
 	def create
 		@student = Student.new
 		@student.update_attributes(first_name: current_user.first_name, last_name: current_user.last_name, email: current_user.email, phone: current_user.phone, age: current_user.age, street_address: current_user.street_address, city: current_user.city, state: current_user.state)
-		#@student.attributes = @student.attributes.merge current_user.attributes.select { |user| @student.attributes.keys.include? user }
 		@reservation = Reservation.new(reservation_params)
 		@reservation.creator = current_user
 		@reservation.students << @student
@@ -28,7 +27,7 @@ class ReservationsController < ApplicationController
 				@student.save!
 				@reservation.save!
 				flash[:notice] = "Group created! You have been added as the first skydiver in the group."
-				redirect_to reservation_path(@reservation)
+				redirect_to reserve_openings_path(student_id: @student.id)
 			rescue Exception => e
 				flash[:danger] = "The group could not be created. Please try again. If the problem persists, please call the office."
 				render :new

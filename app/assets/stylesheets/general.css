@@ -13,4 +13,6 @@ body {
 	margin-right:10px;
 }
 
-.booking
+span {
+	display: inline-block;
+}

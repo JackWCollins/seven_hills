@@ -27,6 +27,6 @@ class OpeningsController < ApplicationController
 
 	def search
 		@student = Student.find(params[:student_id])
-		@openings = Opening.search_by_date(params[:date])
+		@openings = Opening.search_by_date(params[:date]).open
 	end
 end
