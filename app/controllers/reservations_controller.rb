@@ -39,6 +39,12 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.find(params[:id])
 	end
 
+	def find
+	end
+
+	def search
+	end
+
 	private
 
 	def reservation_params

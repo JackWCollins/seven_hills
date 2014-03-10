@@ -10,4 +10,9 @@ class Reservation < ActiveRecord::Base
   def start_time
   	reservation_time
   end
+
+  def self.search_by_reservation_id(reservation_id)
+		return [] if reservation_id.blank?
+		Reservation.where("id = ?", reservation_id)
+	end
 end

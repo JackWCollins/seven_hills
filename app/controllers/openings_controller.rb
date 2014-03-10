@@ -1,6 +1,6 @@
 class OpeningsController < ApplicationController
 	def index
-		@openings = Opening.all
+		@openings = Opening.open
 	end
 
 	def show

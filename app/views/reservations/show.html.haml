@@ -2,8 +2,6 @@
   .row
     .col-sm-10.col-sm-offset-1
       %h3 Your #{@reservation.instruction} Reservation
-      %h5 Date: #{@reservation.reservation_date.nil? ? "You have not picked a date!" : display_day(@reservation.reservation_date)}
-      %h5 Time: #{@reservation.reservation_time.nil? ? "You have not picked a time!" : display_time(@reservation.reservation_date)}
       = link_to "Add a Skydiver", new_student_path(reservation_id: @reservation.id), class: "btn btn-primary"
       %table.table
         %thead
@@ -19,5 +17,5 @@
               %td= student.first_name
               %td= student.last_name
               %td= student.email
-              %td= student.opening.nil? ? "Click here to pick a date for #{student.first_name}" : display_day(student.opening.date)
-              %td= student.opening.nil? ? "Click here to pick a date for #{student.first_name}" : display_time(student.opening.time)
+              %td= student.opening.nil? ? "#{student.first_name} has not picked a day to skydive!" : display_day(student.opening.date)
+              %td= student.opening.nil? ? "#{student.first_name} has not picked a time to skydive!" : display_time(student.opening.time)

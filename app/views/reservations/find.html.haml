@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-sm-4.col-sm-offset-1
+      %h3 Search for a Group
+      = form_tag search_reservations_path do
+        = label_tag "Enter Group Number:"
+        = text_field_tag :reservation_id, params[:reservation_id] || '', class: "form-control", id: "reservation-id"
+        = submit_tag "Search for Group", class: "btn btn-primary"

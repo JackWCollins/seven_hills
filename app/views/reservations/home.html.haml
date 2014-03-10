@@ -1,7 +1,16 @@
 .container
-  .h4 Reservations Home
+  .h4.center Reservations Home
 
-  %p
-    = link_to "View Available Dates and Times", "#", class: "btn btn-primary"
+  %hr
+
+  %p.center
+    = link_to "View Available Dates and Times", openings_path, class: "btn btn-success"
+  %p.center
     = link_to "Create a Group", new_reservation_path, class: "btn btn-primary"
-    = link_to "Join a Group", "#", class: "btn btn-primary"
+  %p.center
+    = link_to "Join a Group", "#", class: "btn btn-info"
+
+  %hr
+
+  %p.center
+    If you are having trouble with our online scheduling system, please don't hesitate to call us at 608-244-5252 to schedule a skydive

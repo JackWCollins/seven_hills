@@ -24,7 +24,13 @@ SevenHills::Application.routes.draw do
   resources :posts, only: [:new, :create, :edit, :update]
   resources :users, only: [:create, :edit, :show]
   resources :shifts
-  resources :reservations, only: [:new, :create, :show, :index]
+  resources :reservations, only: [:new, :create, :show, :index] do
+    collection do
+      get '/search', to: 'reservations#find'
+      post '/search', to: 'reservations#search'
+    end
+  end
+
   get '/reservations_home', to: 'reservations#home'
   resources :students, only: [:new, :create]
   resources :openings, only: [:index, :show] do

@@ -9,4 +9,10 @@
 		  <% end %>
     </div>
   <% end %>
+  <div class="well"><ul>
+  	<h4>Your Reservations:</h4>
+	  <% @user.reservations.each do |res| %>
+		  <li><%= link_to "#{res.instruction}", reservation_path(res), class: "btn btn-primary" %></li>
+	  <% end %>
+	</ul></div>
 </div>
