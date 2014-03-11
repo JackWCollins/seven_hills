@@ -1,4 +1,6 @@
 class OpeningsController < ApplicationController
+	before_action :require_member, only: [:find_roster, :search_roster, :roster]
+
 	def index
 		@openings = Opening.open
 	end
@@ -31,10 +33,13 @@ class OpeningsController < ApplicationController
 	end
 
 	def find_roster
-
 	end
 
-	def search_roster
-
+	def roster
+		@date = params[:date]
+		@openings = Opening.search_by_date(@date)
+		@tandem_openings = @openings.tandem.reserved
+		@iad_openings = @openings.iad.reserved
+		@unfilled_openings = @openings.open
 	end
 end

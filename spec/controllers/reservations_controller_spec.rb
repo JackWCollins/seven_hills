@@ -65,10 +65,4 @@ describe ReservationsController do
 			end
 		end
 	end
-
-	describe "POST search" do
-		it "sets the flash error message if a reservation is not found"
-		it "renders the find template if the reservation is found"
-		it "redirects to the reservation if the reservation is found"
-	end
 end

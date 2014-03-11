@@ -38,6 +38,8 @@ SevenHills::Application.routes.draw do
       get '/reserve', to: 'openings#find_reservation'
       post '/reserve', to: 'openings#save_reservation'
       post '/search', to: 'openings#search'
+      get '/find_roster', to: 'openings#find_roster'
+      post '/roster', to: 'openings#roster'
     end
   end
   namespace :admin do

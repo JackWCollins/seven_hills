@@ -1,8 +1,9 @@
 .container
   .row
     .col-sm-10.col-sm-offset-1
-      %h3 Your #{@reservation.instruction} Reservation
-      = link_to "Add a Skydiver", new_student_path(reservation_id: @reservation.id), class: "btn btn-primary"
+      %h3 Roster for #{@date}
+      %hr
+      %h3 Tandem Students
       %table.table
         %thead
           %tr
@@ -12,10 +13,38 @@
             %th Date
             %th Time
         %tbody
-          - @reservation.students.each do |student|
+          - @tandem_openings.each do |tandem|
             %tr
-              %td= student.first_name
-              %td= student.last_name
-              %td= student.email
-              %td= student.opening.nil? ? "#{student.first_name} has not picked a day to skydive!" : display_day(student.opening.date)
-              %td= student.opening.nil? ? "#{student.first_name} has not picked a time to skydive!" : display_time(student.opening.time)
+              %td= tandem.student.first_name
+              %td= tandem.student.last_name
+              %td= tandem.student.email
+              %td= tandem.student.opening.nil? ? "#{tandem.student.first_name} has not picked a day to skydive!" : display_day(tandem.date)
+              %td= tandem.student.opening.nil? ? "#{tandem.student.first_name} has not picked a time to skydive!" : display_time(tandem.time)
+      %hr
+      %h3 IAD Students
+      %table.table
+        %thead
+          %tr
+            %th First Name
+            %th Last Name
+            %th Email
+            %th Date
+            %th Time
+        %tbody
+          - @iad_openings.each do |iad|
+            %tr
+              %td= iad.student.first_name
+              %td= iad.student.last_name
+              %td= iad.student.email
+              %td= iad.student.opening.nil? ? "#{iad.student.first_name} has not picked a day to skydive!" : display_day(iad.date)
+              %td= iad.student.opening.nil? ? "#{iad.student.first_name} has not picked a time to skydive!" : display_time(iad.time)
+      %hr
+      %h3 Unfilled Openings
+      %ul
+        - if ( @unfilled_openings.nil? || @unfilled_openings == [] )
+          .row
+            %h4.green No unfilled openings for #{@date} 
+        - else
+          - @unfilled_openings.each do |opening|
+            .li
+              = "#{opening.instruction}: #{display_time(opening.time)}"

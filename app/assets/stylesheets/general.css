@@ -13,10 +13,10 @@ body {
 	margin-right:10px;
 }
 
-span {
-	display: inline-block;
-}
-
 .center {
 	text-align: center;
+}
+
+.green {
+	color: #5cb85c;
 }

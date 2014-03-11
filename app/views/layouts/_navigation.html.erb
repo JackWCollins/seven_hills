@@ -32,7 +32,7 @@
         <ul class="dropdown-menu">
           <li><%= link_to "Members Home", members_path %></li>
           <li><%= link_to "Scheduling Calendar", shifts_path %></li>
-          <li><%= link_to "View A Day's Roster", "#" %></li>
+          <li><%= link_to "View A Day's Roster", find_roster_openings_path %></li>
           <li><%= link_to "Available Openings", openings_path %></li>
         </ul>
       </li>
@@ -42,7 +42,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><%= link_to "Create an Opening", new_admin_opening_path %></li>
-          <li><%= link_to "View A Day's Roster", shifts_path %></li>
+          <li><%= link_to "View A Day's Roster", find_roster_openings_path %></li>
           <li><%= link_to "Manage Openings", "#" %></li>
           <li><%= link_to "Available Openings", openings_path %></li>
         </ul>
