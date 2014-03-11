@@ -36,7 +36,7 @@ class Admin::OpeningsController < AdminsController
 		flash[:notice] = "Opening was deleted."
 		redirect_to openings_path
 	end
-
+	
 	private
 
 	def opening_params

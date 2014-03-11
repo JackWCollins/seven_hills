@@ -29,4 +29,12 @@ class OpeningsController < ApplicationController
 		@student = Student.find(params[:student_id])
 		@openings = Opening.search_by_date(params[:date]).open
 	end
+
+	def find_roster
+
+	end
+
+	def search_roster
+
+	end
 end
