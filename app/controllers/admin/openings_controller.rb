@@ -7,8 +7,8 @@ class Admin::OpeningsController < AdminsController
 		@opening = Opening.new(opening_params)
 		@opening.date = params[:opening][:date].nil? ? Time.now.to_date : (DateTime.strptime(params[:opening][:date], "%m/%d/%Y")).to_date #Time zone offset
 		if @opening.save
-			flash[:notice] = "Opening was created."
-			redirect_to openings_path
+			flash[:notice] = "Opening on #{@opening.date.to_date} at #{@opening.time.strftime "%H:%M"} was created."
+			redirect_to new_admin_opening_path
 		else
 			flash[:danger] = "Please pick a date."
 			render :new

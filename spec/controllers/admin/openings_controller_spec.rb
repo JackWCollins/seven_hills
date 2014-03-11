@@ -17,9 +17,9 @@ describe Admin::OpeningsController do
 		context "with valid input" do
 			before { set_current_admin }
 
-			it "redirects to the openings index page" do
+			it "redirects to the new opening page" do
 				post :create, opening: { instruction: "Tandem", date: "03/06/2015", time: "12:30" }
-				expect(response).to redirect_to openings_path
+				expect(response).to redirect_to new_admin_opening_path
 			end
 
 			it "creates an opening" do

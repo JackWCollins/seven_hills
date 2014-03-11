@@ -1,5 +1,7 @@
 .container
   %h3 Openings
+  - if admin?
+    = link_to "Create an Opening", new_admin_opening_path, class: "btn btn-info"
 
 .container
   = calendar @openings do |opening|
