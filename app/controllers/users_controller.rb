@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 		  @posts = Post.all.sort_by{ |x| x.updated_at}.reverse
 		  @shifts = Shift.all.sort_by{ |x| x.updated_at}.reverse
 		else
-			redirect_to login_path
+			redirect_to reservations_home_path
 		end
 	end
 

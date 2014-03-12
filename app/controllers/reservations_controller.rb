@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	before_action :require_user, except: [:new, :home]
+	before_action :require_user, except: [:new, :home, :find, :search]
 
   def home
   end
@@ -43,6 +43,12 @@ class ReservationsController < ApplicationController
 	end
 
 	def search
+		if @reservation = Reservation.find_by_id(params[:reservation_id])
+		  redirect_to reservation_path(@reservation)
+		else
+			flash[:danger] = "Group not found. Please try again."
+			render :find
+		end
 	end
 
 	private
