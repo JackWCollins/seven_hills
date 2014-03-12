@@ -4,6 +4,7 @@ class Opening < ActiveRecord::Base
 
 	INSTRUCTION_TYPES = ["Tandem", "Instructor Assisted Deployment"]
 
+	default_scope { order("time")}
 	scope :open, -> { where(reserved: false)}
 	scope :reserved, -> { where(reserved: true)}
 	scope :tandem, -> { where(instruction: "Tandem")}
