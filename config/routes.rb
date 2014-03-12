@@ -43,7 +43,11 @@ SevenHills::Application.routes.draw do
     end
   end
   namespace :admin do
-    resources :openings, only: [:new, :create, :edit, :update, :destroy]
+    resources :openings, only: [:new, :create, :edit, :update, :destroy] do
+      collection do
+        post '/copy', to: 'openings#copy'
+      end
+    end
   end
   
 end

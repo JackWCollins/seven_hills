@@ -1,5 +1,7 @@
 class Opening < ActiveRecord::Base
 
+	attr_reader :reserved
+
 	validates_presence_of :date, :time, :instruction
 
 	INSTRUCTION_TYPES = ["Tandem", "Instructor Assisted Deployment"]

@@ -15,6 +15,19 @@ class Admin::OpeningsController < AdminsController
 		end
 	end
 
+	def copy
+		@old_opening = Opening.find(params[:opening_id])
+		if @old_opening.reserved?
+			flash[:danger] = "That opening is already reserved and cannot be copied."
+			redirect_to opening_path(@old_opening)
+		else
+			@new_opening = Opening.new(date: @old_opening.date, time: @old_opening.time, instruction: @old_opening.instruction)
+			@new_opening.save
+			flash[:notice] = "Opening copied successfully!"
+			redirect_to opening_path(@new_opening)
+		end
+	end
+
 	def edit
 		@opening = Opening.find(params[:id])
 	end
