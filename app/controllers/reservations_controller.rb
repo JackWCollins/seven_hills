@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	before_action :require_user, except: [:new]
+	before_action :require_user, except: [:new, :home]
 
   def home
   end
