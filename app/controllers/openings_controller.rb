@@ -2,7 +2,7 @@ class OpeningsController < ApplicationController
 	before_action :require_member, only: [:find_roster, :search_roster, :roster]
 
 	def index
-		@openings = Opening.open
+		@openings = Opening
 	end
 
 	def show

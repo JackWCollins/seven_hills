@@ -8,6 +8,12 @@
     .div
       - case opening.instruction
       - when "Tandem"
-        = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-blue"
+        - if opening.reserved?
+          = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-default"
+        - else
+          = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-blue"
       -when "Instructor Assisted Deployment"
-        = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-green"
+        - if opening.reserved?
+          = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-default"
+        - else
+          = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-green"
