@@ -11,14 +11,21 @@
     %div
       - case shift.role 
       - when "Pilot"
-        = link_to(shift_path(shift), class: "calendar-btn cal-blue") do 
+        = link_to(shift_path(shift), class: "calendar-btn cal-teal") do 
           #{shift.role}: #{shift.person}  #{display_time(shift.date)} - #{display_time(shift.end_time)}
       - when "Tandem Instructor"
-        = link_to(shift_path(shift), class: "calendar-btn cal-green") do 
+        = link_to(shift_path(shift), class: "calendar-btn cal-blue") do 
           #{shift.role}: #{shift.person}  #{display_time(shift.date)} - #{display_time(shift.end_time)}
       - when "IAD Instructor"
-        = link_to(shift_path(shift), class: "calendar-btn cal-teal") do 
+        = link_to(shift_path(shift), class: "calendar-btn cal-green") do 
           #{shift.role}: #{shift.person}  #{display_time(shift.date)} - #{display_time(shift.end_time)}
       - when "Coach"
         = link_to(shift_path(shift), class: "calendar-btn cal-orange") do
           #{shift.role}: #{shift.person}  #{display_time(shift.date)} - #{display_time(shift.end_time)}
+
+%hr
+  %h4 Legend
+  %p.center.calendar-btn.cal-blue Tandem Instructor
+  %p.center.calendar-btn.cal-green IAD Instructor
+  %p.center.calendar-btn.cal-teal Pilot
+  %p.center.calendar-btn.cal-orange Coach
