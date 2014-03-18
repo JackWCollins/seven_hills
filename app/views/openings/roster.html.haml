@@ -3,23 +3,23 @@
     .col-sm-10.col-sm-offset-1
       %h3 Roster for #{@date}
       %hr
-      %h3 Tandem Students
+      %h3 Confirmed Tandem Students
       %table.table
         %thead
           %tr
             %th First Name
             %th Last Name
             %th Email
-            %th Date
             %th Time
+            %th Group ID
         %tbody
           - @tandem_openings.each do |tandem|
             %tr
               %td= tandem.student.first_name
               %td= tandem.student.last_name
               %td= tandem.student.email
-              %td= tandem.student.opening.nil? ? "#{tandem.student.first_name} has not picked a day to skydive!" : display_day(tandem.date)
               %td= tandem.student.opening.nil? ? "#{tandem.student.first_name} has not picked a time to skydive!" : display_time(tandem.time)
+              %td= tandem.student.reservations.last.id 
       %hr
       %h3 IAD Students
       %table.table

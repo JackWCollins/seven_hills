@@ -1,7 +1,12 @@
 .container
-  %h3 Openings
+  %h3 Student Reservations
   - if admin?
     = link_to "Create an Opening", new_admin_opening_path, class: "btn btn-info"
+  %hr
+  %h4 Legend
+  %p.center.calendar-btn.cal-blue Tandem Opening
+  %p.center.calendar-btn.cal-green IAD Opening
+  %p.center.calendar-btn.cal-default Reserved Student
 
 .container
   = calendar @openings do |opening|
