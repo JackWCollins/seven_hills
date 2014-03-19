@@ -6,6 +6,7 @@
         = label_tag "Select a Date:"
         = text_field_tag :date, params[:date] || '', class: "form-control", id: "reservation-date"
         = hidden_field_tag :student_id, @student.id
+        = hidden_field_tag :instruction_type, @reservation.instruction
         = submit_tag "Search Date for Openings", class: "btn btn-primary"
   .row
     .col-sm-10.col-sm-offset-1

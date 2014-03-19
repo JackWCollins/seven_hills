@@ -29,7 +29,12 @@ class OpeningsController < ApplicationController
 
 	def search
 		@student = Student.find(params[:student_id])
-		@openings = Opening.search_by_date(params[:date]).open
+		@reservation = @student.reservations.last
+		if @reservation.instruction == "Tandem"
+			@openings = Opening.search_by_date(params[:date]).tandem.open
+		elsif @reservation.instruction == "Instructor Assisted Deployment"
+			@openings = Opening.search_by_date(params[:date]).iad.open
+		end
 	end
 
 	def find_roster
