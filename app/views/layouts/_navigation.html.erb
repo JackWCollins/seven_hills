@@ -30,9 +30,9 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Members <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><%= link_to "Members Home", members_path %></li>
+          <li><%= link_to "Member's Home", members_path %></li>
           <li><%= link_to "Shifts Calendar", shifts_path %></li>
-          <li><%= link_to "Single Day Roster", find_roster_openings_path %></li>
+          <li><%= link_to "Roster", find_roster_openings_path %></li>
           <li><%= link_to "Student Reservations", openings_path %></li>
         </ul>
       </li>
@@ -43,8 +43,7 @@
         <ul class="dropdown-menu">
           <li><%= link_to "Create an Opening", new_admin_opening_path %></li>
           <li><%= link_to "Roster", find_roster_openings_path %></li>
-          <li><%= link_to "Manage Openings", "#" %></li>
-          <li><%= link_to "Available Openings", openings_path %></li>
+          <li><%= link_to "Manage Openings", openings_path %></li>
         </ul>
       </li>
     <% end %>
