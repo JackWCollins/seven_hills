@@ -1,9 +1,9 @@
 .container
   .row
     .col-sm-10.col-sm-offset-1
-      %h3 Type: #{@opening.instruction} 
-      %h3 Date: #{display_day(@opening.date)}
-      %h3 Time: #{display_time(@opening.time)}
+      %h3 #{@opening.instruction} Opening
+      %h3 #{display_day(@opening.date)} at #{display_time(@opening.time)}
+      %h3 Reserved? #{@opening.reserved? ? "Yes" : "No"}
   .row
     .col-sm-10.col-sm-offset-1
       - if admin?
@@ -11,3 +11,21 @@
         = link_to "Delete Opening", admin_opening_path(@opening), method: :delete, confirm: "Are you sure you want to delete this opening?", class: "btn btn-danger"
         = link_to "Copy Opening", copy_admin_openings_path(opening_id: @opening.id), method: :post, class: "btn btn-info"
       = link_to "Create a Skydiving Group!", new_reservation_path, class: "btn btn-primary" unless @opening.reserved?
+  - if @opening.reserved? && admin?
+    .row
+      .col-sm-10.col-sm-offset-1
+        %table.table
+          %thead
+            %tr
+              %th First Name
+              %th Last Name
+              %th Email
+              %th Phone
+              %th Confirmed?
+          %tbody
+            %tr
+              %td= @opening.student.first_name
+              %td= @opening.student.last_name
+              %td= @opening.student.email
+              %td= @opening.student.phone
+              %td= @opening.student.confirmed? ? "Confirmed" : (link_to "Confirm", admin_path(@opening.student), class: "btn btn-success", method: :post)

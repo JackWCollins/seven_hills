@@ -13,12 +13,20 @@
     .div
       - case opening.instruction
       - when "Tandem"
-        - if opening.reserved?
-          = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-default"
-        - else
+        - if opening.reserved? == false
           = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-blue"
+        - if opening.reserved? && admin?
+          - if opening.student.confirmed?
+            = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-default"
+          - else
+            = link_to "Tandem: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-red"
       -when "Instructor Assisted Deployment"
-        - if opening.reserved?
-          = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-default"
-        - else
+        - if opening.reserved? == false
           = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-green"
+        - if opening.reserved? && admin?
+          - if opening.student.confirmed?
+            = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-default"
+          - else
+            = link_to "IAD: #{display_time(opening.time)}", opening_path(opening), class: "calendar-btn cal-red"
+
+        

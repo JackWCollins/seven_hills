@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308224056) do
+ActiveRecord::Schema.define(version: 20140320010900) do
 
   create_table "groups", force: true do |t|
     t.integer  "reservation_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140308224056) do
     t.string   "instruction"
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "confirmed",      default: false
   end
 
   create_table "users", force: true do |t|

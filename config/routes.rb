@@ -48,6 +48,7 @@ SevenHills::Application.routes.draw do
         post '/copy', to: 'openings#copy'
       end
     end
+    post 'confirm/:id', to: "students#confirm"
   end
   
 end

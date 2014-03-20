@@ -20,3 +20,5 @@
               %td= student.email
               %td= student.opening.nil? ? "#{student.first_name} has not picked a day to skydive!" : display_day(student.opening.date)
               %td= student.opening.nil? ? "#{student.first_name} has not picked a time to skydive!" : display_time(student.opening.time)
+              - if admin?
+                %td= student.confirmed? ? "Confirmed" : link_to "Confirm" admin_path(@student), class: "btn btn-success", method: :post
