@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			session[:user_id] = @user.id
-			flash[:notice] = "Thanks for registering!"
+			flash[:notice] = "Thanks for registering! If you're a member, click the link at the bottom of the screen."
 			redirect_to reservations_home_path
 		else
 			render :new

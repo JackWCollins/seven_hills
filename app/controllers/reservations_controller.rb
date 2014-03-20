@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
 	before_action :require_user, only: [:index]
 
   def home
+  	@user = User.find_by(id: session[:user_id])
   end
 
   def index
