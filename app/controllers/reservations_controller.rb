@@ -20,7 +20,6 @@ class ReservationsController < ApplicationController
 		else
 			flash[:danger] = "The group could not be created. Please try again. If the problem persists, please call the office."
 			render :new
-			end
 		end
 	end
 

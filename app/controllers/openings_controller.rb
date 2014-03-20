@@ -19,7 +19,8 @@ class OpeningsController < ApplicationController
 		@opening.student_id = @student.id
 		@opening.reserved = true
 		if @opening.save
-			flash[:notice] = "You've been added to the reservation"
+			AppMailer.send_registration_email(@student).deliver
+			flash[:notice] = "You've been added to the reservation and a confirmation email has been sent."
 			redirect_to reservation_path(@student.reservations.last)
 		else
 			flash[:danger] = "Something went wrong. Please try again"
