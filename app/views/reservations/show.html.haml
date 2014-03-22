@@ -3,7 +3,13 @@
     .col-sm-10.col-sm-offset-1
       %h3 Your #{@reservation.instruction} Reservation
       %h4.green Group ID: #{@reservation.id}
-      = link_to "Add a Skydiver", new_student_path(reservation_id: @reservation.id), class: "btn btn-primary"
+
+      %br/
+
+      = link_to "Add a Skydiver", new_student_path(reservation_id: @reservation.id), class: "btn btn-primary inline"
+      %h4.inline There are currently #{@reservation.students.count} students in your group. 
+
+      %p We will send a confirmation email to each person after they are added to the group. Then, one of our staff will call you to confirm the reservation and take a deposit for your skydive. If you have any questions, please don't hesitate to call our scheduler at (608) 244-5252.
       %table.table
         %thead
           %tr
@@ -20,3 +26,6 @@
               %td= student.email
               %td= student.opening.nil? ? "#{student.first_name} has not picked a day to skydive!" : display_day(student.opening.date)
               %td= student.opening.nil? ? "#{student.first_name} has not picked a time to skydive!" : display_time(student.opening.time)
+      %hr
+      %h4.green When you're finished...
+      %p When you've added all of the people in your group, you're done! We will call you on your phone shortly to confirm your reservation and take a deposit. We can't wait to see you soon!

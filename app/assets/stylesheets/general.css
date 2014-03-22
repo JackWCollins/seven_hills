@@ -20,3 +20,7 @@ body {
 .green {
 	color: #5cb85c;
 }
+
+.inline {
+	display: inline;
+}

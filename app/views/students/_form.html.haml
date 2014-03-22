@@ -1,6 +1,6 @@
-.col-sm-10.col-sm-offset-1
-	.well
-		= bootstrap_form_for @student, html: { class: "form-horizontal" } do |f| 
+.row
+	.well.col-sm-10
+		= bootstrap_form_for @student do |f| 
 			%fieldset
 				= f.text_field :first_name, placeholder: "Jimmy"
 				= f.text_field :last_name, placeholder: "Skydiver"

@@ -1,15 +1,11 @@
 .container
-  .h4.center Reservations Home
-
-  %hr
-
-  %h4.center If you know the date you would like, click below! 
+  %h4.center If you know the date you want to skydive, click below! No registration necessary.
   %p.center
-    = link_to "Create a Group / Make a Reservation", new_reservation_path, class: "btn btn-success"
+    = link_to "Create a Skydiving Group / Make a Reservation", new_reservation_path, class: "btn btn-success"
   
   %hr
 
-  %h4.center If you have a group number from a friend, Join an Existing Group.
+  %h4.center If you have a skydiving group number from a friend, Join an Existing Group.
   %p.center
     = link_to "Join an Existing Group", search_reservations_path, class: "btn btn-primary"
 
@@ -26,6 +22,6 @@
   - if logged_in? && (@user.member? == false)
     %hr
 
-    %h4.center Are you a Seven Hills Member? Click below.
+    %h4.center Are you a Seven Hills Member?
     %p.center 
       = link_to "Click here to set yourself as a member!", set_member_path, class: "btn btn-success"

@@ -30,11 +30,16 @@ class OpeningsController < ApplicationController
 
 	def search
 		@student = Student.find(params[:student_id])
-		@reservation = @student.reservations.last
-		if @reservation.instruction == "Tandem"
-			@openings = Opening.search_by_date(params[:date]).tandem.open
-		elsif @reservation.instruction == "Instructor Assisted Deployment"
-			@openings = Opening.search_by_date(params[:date]).iad.open
+		if params[:date].empty?
+			flash[:danger] = "Please choose a date below."
+			redirect_to reserve_openings_path student_id: @student.id
+		else
+			@reservation = @student.reservations.last
+			if @reservation.instruction == "Tandem"
+				@openings = Opening.search_by_date(params[:date]).tandem.open
+			elsif @reservation.instruction == "Instructor Assisted Deployment"
+				@openings = Opening.search_by_date(params[:date]).iad.open
+			end
 		end
 	end
 

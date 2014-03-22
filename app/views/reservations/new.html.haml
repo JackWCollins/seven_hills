@@ -3,8 +3,9 @@
     .col-sm-4.col-sm-offset-1
       = bootstrap_form_for @reservation do |f|
         %h3 Create a Reservation
+        %p First, choose which type of skydive you would like to make. Not sure? #{link_to "Click here", faq_path} to compare.
         %fieldset
-          = f.select(:instruction, Reservation::INSTRUCTION_TYPES)
+          = f.select :instruction, Reservation::INSTRUCTION_TYPES
         %fieldset.actions.control-group.col-sm-offset-2
           .controls
             %input(type="submit" value="Continue" class="btn btn-primary")
