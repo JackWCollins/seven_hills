@@ -3,13 +3,22 @@
 
   %hr
 
+  %h4.center If you know the date you would like, click below! 
+  %p.center
+    = link_to "Create a Group / Make a Reservation", new_reservation_path, class: "btn btn-success"
   
+  %hr
+
+  %h4.center If you have a group number from a friend, Join an Existing Group.
   %p.center
-    = link_to "Create a Group", new_reservation_path, class: "btn btn-success"
-  %p.center
-    = link_to "Join a Group", search_reservations_path, class: "btn btn-primary"
+    = link_to "Join an Existing Group", search_reservations_path, class: "btn btn-primary"
+
+  %hr
+
+  %h4.center Don't know when you want to skydive? Browse the openings here!
   %p.center
     = link_to "View Available Dates and Times", openings_path, class: "btn btn-info"
+
   %hr
 
   %p.center
@@ -17,5 +26,6 @@
   - if logged_in? && (@user.member? == false)
     %hr
 
+    %h4.center Are you a Seven Hills Member? Click below.
     %p.center 
-      = link_to "Click here to set yourself as a member!", set_member_path
+      = link_to "Click here to set yourself as a member!", set_member_path, class: "btn btn-success"
