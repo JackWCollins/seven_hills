@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'fabrication'
 gem 'faker'
 gem 'gon'
+gem 'metamagic'
 
 group :development do
   gem 'sqlite3'
