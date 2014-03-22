@@ -6,12 +6,13 @@
       %h3 Your #{@reservation.instruction} Reservation
       %h4.green Group ID: #{@reservation.id}
 
+      %p Add yourself and other skydivers to the group using the button below. We will send a confirmation email to each person after they are added to the group. Then, one of our staff will call you to confirm the reservation and take a deposit for your skydive. If you have any questions, please don't hesitate to call our scheduler at (608) 244-5252.
+
       %br/
 
       = link_to "Add a Skydiver", new_student_path(reservation_id: @reservation.id), class: "btn btn-primary inline"
       %h4.inline There are currently #{@reservation.students.count} students in your group. 
-
-      %p We will send a confirmation email to each person after they are added to the group. Then, one of our staff will call you to confirm the reservation and take a deposit for your skydive. If you have any questions, please don't hesitate to call our scheduler at (608) 244-5252.
+      
       %table.table
         %thead
           %tr

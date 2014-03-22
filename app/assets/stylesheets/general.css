@@ -1,5 +1,7 @@
 body {
   padding-top: 80px;
+  background: #cccccc url('fabric.png');
+  background-position: 50% 50%;
 }
 
 @media (max-width: 768px) {
